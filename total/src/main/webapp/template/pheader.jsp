@@ -93,6 +93,10 @@
 
         <header>
 	<div id="member_bar">
+	<%
+		String id = (String)session.getAttribute("id");
+		if(id == null){
+	%>
 		<div class="login_form">
 			<form action="login_process.jsp" method="post">
 				<input type="text" name="id" placeholder="아이디를 입력하세요">
@@ -100,13 +104,17 @@
 				<button>로그인</button><button id="btn_register" type="button">회원가입</button>
 			</form>
 		</div>
-		<!-- 
+		<%
+		}else{
+		%>
 		<div class="profile">
 			<img src="resource/images/profile.png" alt="">
-			<p>OOO로그인 하셨습니다.</p>
-			<p>로그아웃 | 정보수정</p>
+			<p><%=id %>님 로그인 하셨습니다.</p>
+			<p><a href="logout.jsp">로그아웃</a> | 정보수정</p>
 		</div>
-		 -->
+		 <%
+		}
+		 %>
 	</div>
 	<div class="ad_img">
 		<button class="left_arrow">
