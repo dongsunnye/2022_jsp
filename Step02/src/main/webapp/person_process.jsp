@@ -9,5 +9,5 @@
 	Person p = new Person(name,age);
 	request.setAttribute("person", p);
 	//person_result.jsp로 이동
-
+	request.getRequestDispatcher("person_result.jsp").forward(request, response);	
 %>
