@@ -24,7 +24,7 @@
 	ArrayList<HashSet<Integer>> list =(ArrayList<HashSet<Integer>>) request.getAttribute("list");
 	for(int i=0;i<list.size();i++){
 %>
-		<tr>
+		<tr><td><%=i+1 %>set</td>
 <%
 		HashSet<Integer> set = list.get(i);
 		for(int n : set){
