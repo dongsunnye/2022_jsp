@@ -3,4 +3,5 @@
 <%
 	String param = request.getParameter("data");
 	request.setAttribute("result", "request_"+param);
+	response.sendRedirect("redirect_result.jsp");
 %>
