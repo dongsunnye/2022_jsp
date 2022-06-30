@@ -10,5 +10,6 @@
 <%=session.getId() %><br>
 request : <%=request.getAttribute("req") %><br>
 session : <%=session.getAttribute("session") %><br>
+<a href="invalid.jsp">세션 정보 초기화</a>
 </body>
 </html>
