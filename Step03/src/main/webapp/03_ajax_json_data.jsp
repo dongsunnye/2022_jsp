@@ -16,9 +16,13 @@
 				data : d,
 				url : "divisor_ajax.jsp",
 				type:"get",
-				dataType:"text",
+				dataType:"json",
 				success:function(r){
-					$("#result").html(r);
+					var tag = "";
+					for(i=0;i<r.length;i++)
+						tag += "<span>"+r[i]+"</span> ";
+					
+					$("#result").html(tag);
 				}
 				
 			});
