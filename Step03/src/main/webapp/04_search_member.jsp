@@ -12,7 +12,7 @@
 			var d = $("form").serialize();
 			
 			$.ajax({
-				url : "member_all_ajax.jsp",
+				url : "member_search_ajax.jsp",
 				data : d,
 				type: "get",
 				dataType : "json",
