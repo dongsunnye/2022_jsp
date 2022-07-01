@@ -8,7 +8,30 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript">
 	$(function(){
-				
+		$("button").click(function() {
+			var d = $("form").serialize();
+			
+			$.ajax({
+				url : "member_all_ajax.jsp",
+				data : d,
+				type: "get",
+				dataType : "json",
+				success:function(r){
+					var tag = "";
+					for(i=0;i<r.length;i++){
+						tag += "<tr>";
+						tag += "<td>"+r[i].id+"</td>";
+						tag += "<td>"+r[i].pass+"</td>";
+						tag += "<td>"+r[i].name+"</td>";
+						tag += "<td>"+r[i].age+"</td>";
+						tag += "<td>"+r[i].gender+"</td>";
+						tag += "<td>"+r[i].address+"</td>";
+						tag += "</tr>";
+					}
+					$("tbody").html(tag);
+				}
+			});
+		});
 	});
 </script>
 </head>
