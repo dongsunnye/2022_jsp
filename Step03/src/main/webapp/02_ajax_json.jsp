@@ -6,7 +6,7 @@
 	Calendar today = Calendar.getInstance();
 	JSONObject obj = new JSONObject();
 	obj.put("year", today.get(Calendar.YEAR));
-	obj.put("month", today.get(Calendar.MONTH));
+	obj.put("month", today.get(Calendar.MONTH)+1);
 	obj.put("date", today.get(Calendar.DATE));
 	obj.put("hour", today.get(Calendar.HOUR_OF_DAY));
 	obj.put("minute", today.get(Calendar.MINUTE));

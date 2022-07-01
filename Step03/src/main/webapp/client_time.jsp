@@ -13,9 +13,12 @@
 				url:"02_ajax_json.jsp",
 				//data:,
 				type:"get",
-				dataType:"text",
+				dataType:"json",
 				success:function(r){
-					$("#result").html(r);
+					var str = r.year+"/";
+					str += r.month +"/" + r.date + " " 
+					str += r.hour + ":"+ r.minute +":"+ r.second;    
+					$("#result").html(str);
 				}
 			});
 		});
