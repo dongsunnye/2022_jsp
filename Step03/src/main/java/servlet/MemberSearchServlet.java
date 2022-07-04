@@ -55,6 +55,8 @@ public class MemberSearchServlet extends HttpServlet {
 			}
 			
 			JSONArray array = new JSONArray(list);
+			//System.out.println(response.getCharacterEncoding() );
+			response.setCharacterEncoding("UTF-8");
 			response.getWriter().write(array.toString());
 		} catch (SQLException e) {
 			e.printStackTrace();
