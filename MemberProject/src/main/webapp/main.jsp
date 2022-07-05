@@ -23,6 +23,29 @@
 		display: inline-block;
 		text-align: left;
 	}
+	nav{
+		border-bottom: 1px solid black;
+		padding: 20px 0px;
+	}
+	nav ul{
+		list-style-type: none;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+	}
+	nav ul li{
+		width: 200px;
+	}
+	nav ul li a:link,nav ul li a:visited {
+		display: inline-block;
+		font-size: 20px;
+		font-weight: bold;
+		text-align: center;
+		width: 100%;
+		padding:10px 0px;
+		color:black;
+		text-decoration: none;
+	}
 </style>
 </head>
 <body>
@@ -33,6 +56,13 @@
 				<a href="logout.do">로그아웃</a> | <a href="">회원정보 수정</a>
 			</div>
 		</header>		
+		<nav>
+			<ul>
+				<li><a href="">홈</a></li>
+				<li><a href="">회원목록</a></li>
+				<li><a href="">회원추가</a></li>
+			</ul>
+		</nav>
 	</div>
 </body>
 </html>
