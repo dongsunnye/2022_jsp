@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.MemberDAO;
+import dto.MemberDTO;
+
 /**
  * Servlet implementation class LoginServlet
  */
@@ -28,6 +31,8 @@ public class LoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String id = request.getParameter("id");
 		String passwd = request.getParameter("passwd");
+		
+		MemberDTO dto = MemberDAO.getInstance().login(id, passwd);
 	}
 
 	/**
