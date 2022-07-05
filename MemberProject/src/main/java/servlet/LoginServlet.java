@@ -1,6 +1,8 @@
 package servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,6 +35,11 @@ public class LoginServlet extends HttpServlet {
 		String passwd = request.getParameter("passwd");
 		
 		MemberDTO dto = MemberDAO.getInstance().login(id, passwd);
+		if(dto == null) {
+			//로그인이 안되었을때 - 자바스크립트로 경고창 출력 후 이전 페이지로 이동
+			PrintWriter out = response.getWriter();
+			out.write("<script>alert('로그인실패\n아이디와 비밀번호를 확인하세요');history.back();</script>");
+		}
 	}
 
 	/**
