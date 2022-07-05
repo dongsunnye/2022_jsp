@@ -55,7 +55,6 @@ public class MemberDAO {
 		ResultSet rs = null;
 		try {
 			pstmt = conn.prepareStatement(sql);
-			
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {

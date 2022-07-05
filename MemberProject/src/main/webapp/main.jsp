@@ -47,6 +47,19 @@
 		color:black;
 		text-decoration: none;
 	}
+	section table{
+		margin:30px auto;
+		border-collapse: collapse;
+	}
+	
+	th, td{
+		width:150px;
+		text-align:center;
+		padding:10px;
+		font-size: 20px;
+		border:1px solid black;
+	}
+	
 </style>
 </head>
 <body>
@@ -76,7 +89,16 @@
 					<th>성별</th>
 					<th>주소</th>
 				</tr>
-				<!-- session 영역에 저장된 list를 출력 -->			
+				<!-- session 영역에 저장된 list를 출력 -->	
+				<c:forEach var="m" items="${sessionScope.list }">
+					<tr>
+						<td>${m.id }</td>
+						<td>${m.name }</td>
+						<td>${m.age }</td>
+						<td>${m.gender }</td>
+						<td>${m.address }</td>
+					</tr>
+				</c:forEach>		
 			</table>
 		</section>
 	</div>
