@@ -2,6 +2,8 @@ package config;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class DBManager {
@@ -30,5 +32,21 @@ public class DBManager {
 	public Connection getConn() {
 		return conn;
 	}
+
+	public void close(ResultSet rs, PreparedStatement pstmt) {
+		try {
+			if(rs != null) rs.close();
+			if(pstmt != null) pstmt.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
 	
 }
+
+
+
+
+
+
+
