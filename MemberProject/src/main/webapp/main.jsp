@@ -67,6 +67,18 @@
 				<li><a href="">회원추가</a></li>
 			</ul>
 		</nav>
+		<section>
+			<table>
+				<tr>
+					<th>아이디</th>
+					<th>이름</th>
+					<th>나이</th>
+					<th>성별</th>
+					<th>주소</th>
+				</tr>
+				<!-- session 영역에 저장된 list를 출력 -->			
+			</table>
+		</section>
 	</div>
 </body>
 </html>
