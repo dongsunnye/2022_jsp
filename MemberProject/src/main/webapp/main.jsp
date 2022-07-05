@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,6 +50,9 @@
 </style>
 </head>
 <body>
+<c:if test="${sessionScope.dto == null}">
+	<c:redirect url="index.jsp"/>
+</c:if>
 	<div class="container">
 		<header>
 			<div class="profile">

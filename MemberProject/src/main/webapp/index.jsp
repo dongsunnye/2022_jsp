@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -44,6 +45,10 @@
 </style>
 </head>
 <body>
+<!-- 로그인이 되어 있으면 main.jsp로 이동 -->
+<c:if test="${sessionScope.dto != null}">
+	<c:redirect url="main.jsp"/>
+</c:if>
 	<div class="container">
 		<h2>회원 관리 시스템</h2>
 		<form action="login.do" method="post">
