@@ -2,6 +2,7 @@ package servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -47,6 +48,9 @@ public class LoginServlet extends HttpServlet {
 			HttpSession session = request.getSession();
 			//세션에 dto를 저장
 			session.setAttribute("dto", dto);
+			//나이가 가장많은 인원 3명을 저장
+			ArrayList<MemberDTO> list = MemberDAO.getInstance().selectTopAge3();
+			session.setAttribute("list", list);			
 			//페이지 이동 main.jsp로 이동
 			//request.getRequestDispatcher("main.jsp").forward(request, response);
 			response.sendRedirect("main.jsp");
