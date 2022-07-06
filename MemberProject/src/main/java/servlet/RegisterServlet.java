@@ -46,7 +46,7 @@ public class RegisterServlet extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		if(result == 1) {
 			//회원정보 등록을 성공 했을때 경고창으로 회원정보 등록을 알려준 후에 main.jsp로 이동
-			out.write("<script>alert('회원정보 추가 완료');location.href='main.jsp';</script>");
+			out.write("<script>alert('회원정보 추가 완료');location.href='memberList.do';</script>");
 		}else {
 			//회원정보 등록을 실패 했을때 경고창으로 회원정보 실패를을 알려준 후에 이전 페이지로 이동
 			out.write("<script>alert('회원정보 추가 실패');history.back();</script>");

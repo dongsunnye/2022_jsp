@@ -84,15 +84,16 @@
 			<table>
 				<tr>
 					<th>아이디</th>
+					<th>암호</th>
 					<th>이름</th>
 					<th>나이</th>
 					<th>성별</th>
 					<th>주소</th>
 				</tr>
-				<!-- session 영역에 저장된 list를 출력 -->	
-				<c:forEach var="m" items="${sessionScope.list }">
+				<c:forEach var="m" items="${requestScope.list }">
 					<tr>
 						<td>${m.id }</td>
+						<td>${m.pass }</td>
 						<td>${m.name }</td>
 						<td>${m.age }</td>
 						<td>${m.gender }</td>
