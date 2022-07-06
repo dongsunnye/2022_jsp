@@ -93,6 +93,30 @@ public class MemberDAO {
 		
 		return result;
 	}
+
+	public int updateMemberDTO(MemberDTO dto) {
+		int result = 0;
+		String sql = "update member set passwd=?, name=?, age=?, gender=?, address=? where id = ?";
+		PreparedStatement pstmt = null;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(6, dto.getId());
+			pstmt.setString(1, dto.getPass());
+			pstmt.setString(2, dto.getName());
+			pstmt.setInt(3, dto.getAge());
+			pstmt.setString(4, dto.getGender());
+			pstmt.setString(5, dto.getAddress());
+			
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.getInstance().close(null, pstmt);
+		}
+		
+		return result;
+	}
 	
 	
 	
