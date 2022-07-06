@@ -89,6 +89,7 @@
 					<th>나이</th>
 					<th>성별</th>
 					<th>주소</th>
+					<th>비고</th>
 				</tr>
 				<c:forEach var="m" items="${requestScope.list }">
 					<tr>
@@ -98,6 +99,7 @@
 						<td>${m.age }</td>
 						<td>${m.gender }</td>
 						<td>${m.address }</td>
+						<td><a href="memberDelete.do?id=${m.id }">삭제</a></td>
 					</tr>
 				</c:forEach>		
 			</table>
