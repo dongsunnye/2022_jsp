@@ -117,6 +117,28 @@ public class MemberDAO {
 		
 		return result;
 	}
+
+	public ArrayList<MemberDTO> selectMemberList() {
+		ArrayList<MemberDTO> list = new ArrayList<MemberDTO>();
+		String sql = "select * from member";
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				list.add(new MemberDTO(rs.getString(1), rs.getString(2), 
+						rs.getString(3), rs.getInt(4), rs.getString(5), rs.getString(6)));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.getInstance().close(rs,pstmt);
+		}
+		
+		return list;
+	}
 	
 	
 	
