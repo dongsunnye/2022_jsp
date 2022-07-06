@@ -139,6 +139,24 @@ public class MemberDAO {
 		
 		return list;
 	}
+
+	public int deleteMemberDTO(String id) {
+		int result = 0;
+		String sql = "delete from member where id = ?";
+		PreparedStatement pstmt = null;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.getInstance().close(null, pstmt);
+		}
+		
+		return result;
+	}
 	
 	
 	
