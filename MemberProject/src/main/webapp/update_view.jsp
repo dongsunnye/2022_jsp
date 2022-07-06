@@ -101,7 +101,7 @@ li > button{
 			</ul>
 		</nav>
 		<section>
-			<h2>회원 정보 추가</h2>
+			<h2>회원 정보 수정</h2>
 			<form action="update.do" method="post">
 				<ul>
 					<li>
@@ -134,7 +134,7 @@ li > button{
 						<input type="text" name="address" placeholder="주소를 입력하세요" value="${sessionScope.dto.address }">
 					</li>
 					<li>
-						<button>회원가입</button><button type="button" onclick="history.back();">취소</button>
+						<button>정보수정</button><button type="button" onclick="history.back();">취소</button>
 					</li>
 				</ul>
 			</form>
