@@ -157,6 +157,30 @@ public class MemberDAO {
 		
 		return result;
 	}
+
+	public MemberDTO selectMemberDTO(String id) {
+		MemberDTO dto = null;
+		String sql = "select * from member where id like ?";
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, id);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				dto = new MemberDTO(rs.getString(1), rs.getString(2), 
+						rs.getString(3), rs.getInt(4), rs.getString(5), rs.getString(6));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.getInstance().close(rs,pstmt);
+		}
+		
+		return dto;
+	}
 	
 	
 	
