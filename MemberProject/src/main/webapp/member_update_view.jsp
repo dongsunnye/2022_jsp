@@ -111,27 +111,27 @@ li > button{
 						<input type="password" name="passwd" placeholder="암호를 입력하세요">
 					</li>
 					<li>
-						<input type="text" name="name" placeholder="이름을 입력하세요" value="${sessionScope.dto.name }">
+						<input type="text" name="name" placeholder="이름을 입력하세요" value="${requestScope.dto.name }">
 					</li>
 					<li>
-						<input type="number" name="age" placeholder="나이를 입력하세요" value="${sessionScope.dto.age }">
+						<input type="number" name="age" placeholder="나이를 입력하세요" value="${requestScope.dto.age }">
 					</li>
 					<li>
 						<div>
 							<c:set var="m" value="M"/>
 							<c:set var="f" value="F"/>
 							<input type="radio" name="gender" id="g1" value="M"	
-								<c:if test="${sessionScope.dto.gender == m}">checked</c:if>
+								<c:if test="${requestScope.dto.gender == m}">checked</c:if>
 							> 
 							<label for="g1">남</label>
 							<input type="radio" name="gender" id="g2" value="F" 
-								<c:if test="${sessionScope.dto.gender==f}">checked</c:if>
+								<c:if test="${requestScope.dto.gender==f}">checked</c:if>
 							> 
 							<label for="g2">여</label>
 						</div>
 					</li>
 					<li>
-						<input type="text" name="address" placeholder="주소를 입력하세요" value="${sessionScope.dto.address }">
+						<input type="text" name="address" placeholder="주소를 입력하세요" value="${requestScope.dto.address }">
 					</li>
 					<li>
 						<button>정보수정</button><button type="button" onclick="history.back();">취소</button>
