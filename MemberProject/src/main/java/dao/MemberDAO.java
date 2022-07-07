@@ -181,6 +181,33 @@ public class MemberDAO {
 		
 		return dto;
 	}
+
+	public ArrayList<MemberDTO> selectMemberList(String kind, String search) {
+		ArrayList<MemberDTO> list = new ArrayList<MemberDTO>();
+		String sql = "select * from member where ";
+		if(kind.equals("gender"))
+			sql += kind + " = ?";
+		else
+			sql += kind + " like '%' || ? || '%'";
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, search);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				list.add(new MemberDTO(rs.getString(1), rs.getString(2), 
+						rs.getString(3), rs.getInt(4), rs.getString(5), rs.getString(6)));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.getInstance().close(rs,pstmt);
+		}
+		
+		return list;
+	}
 	
 	
 	

@@ -40,7 +40,8 @@ public class MemberListServlet extends HttpServlet {
 		if(kind == null)
 				list = MemberDAO.getInstance().selectMemberList();
 		else
-				list =	MemberDAO.getInstance().selectMemberList(kind, search); 
+				list =	MemberDAO.getInstance().selectMemberList(kind, search);
+		
 		request.setAttribute("list", list);
 		request.getRequestDispatcher("member_list.jsp").forward(request, response);
 		
