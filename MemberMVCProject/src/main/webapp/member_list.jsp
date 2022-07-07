@@ -76,7 +76,7 @@
 		<nav>
 			<ul>
 				<li><a href="main.jsp">홈</a></li>
-				<li><a href="memberList.do">회원목록</a></li>
+				<li><a href="memberList.do?command=search">회원목록</a></li>
 				<li><a href="register.jsp">회원추가</a></li>
 			</ul>
 		</nav>
@@ -84,6 +84,7 @@
 			<table>
 				<caption>
 					<form action="memberList.do" method="get">
+						<input type="hidden" name="command" value="search">
 						<select name="kind">
 							<option value="id"
 								<c:if test="${param.kind == 'id' }">

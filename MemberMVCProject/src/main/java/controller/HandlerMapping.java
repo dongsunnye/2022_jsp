@@ -24,6 +24,9 @@ public class HandlerMapping {
 		case "register":
 			controller = new RegisterController();
 			break;
+		case "search":
+			controller = new SearchController();
+			break;
 		}
 		
 		return controller;
