@@ -103,6 +103,7 @@ li > button{
 		<section>
 			<h2>회원 정보 추가</h2>
 			<form action="register.do" method="post">
+				<input type="hidden" name="command" value="register"> 
 				<ul>
 					<li>
 						<input type="text" name="id" placeholder="아이디를 입력하세요">
