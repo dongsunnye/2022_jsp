@@ -89,7 +89,7 @@ li > button{
 	<div class="container">
 		<header>
 			<div class="profile">
-				${sessionScope.dto.name }님 로그인 하셨습니다.<br> <a href="logout.do">로그아웃</a>
+				${sessionScope.dto.name }님 로그인 하셨습니다.<br> <a href="logout.do?command=logout">로그아웃</a>
 				| <a href="">회원정보 수정</a>
 			</div>
 		</header>

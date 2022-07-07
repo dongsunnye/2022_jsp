@@ -1,5 +1,7 @@
 package service;
 
+import java.util.ArrayList;
+
 import dao.MemberDAO;
 import dto.MemberDTO;
 
@@ -16,6 +18,10 @@ public class MemberService {
 
 	public MemberDTO login(String id, String passwd) {
 		return MemberDAO.getInstance().login(id, passwd);
+	}
+
+	public ArrayList<MemberDTO> selectTopAge3() {
+		return MemberDAO.getInstance().selectTopAge3();
 	}
 	
 	

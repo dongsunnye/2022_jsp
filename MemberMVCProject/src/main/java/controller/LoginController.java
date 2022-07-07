@@ -37,7 +37,7 @@ public class LoginController implements Controller {
 			//세션에 dto를 저장
 			session.setAttribute("dto", dto);
 			//나이가 가장많은 인원 3명을 저장
-			ArrayList<MemberDTO> list = MemberDAO.getInstance().selectTopAge3();
+			ArrayList<MemberDTO> list = MemberService.getInstance().selectTopAge3();
 			session.setAttribute("list", list);
 			
 			view = new ModelAndView("main.jsp", true); 
