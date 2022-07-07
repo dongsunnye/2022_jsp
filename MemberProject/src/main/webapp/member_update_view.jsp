@@ -103,6 +103,7 @@ li > button{
 		<section>
 			<h2>회원 정보 수정</h2>
 			<form action="update.do" method="post">
+				<input type="hidden" name="type" value="member">
 				<ul>
 					<li>
 						<input type="text" name="id" placeholder="아이디를 입력하세요" value="${sessionScope.dto.id }" readonly>
