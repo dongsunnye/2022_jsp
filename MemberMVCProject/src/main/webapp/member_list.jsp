@@ -122,7 +122,7 @@
 				</tr>
 				<c:forEach var="m" items="${requestScope.list }">
 					<tr>
-						<td><a href="updateView.do?id=${m.id }">${m.id }</a></td>
+						<td><a href="updateView.do?command=updateView&id=${m.id }">${m.id }</a></td>
 						<td>${m.pass }</td>
 						<td>${m.name }</td>
 						<td>${m.age }</td>

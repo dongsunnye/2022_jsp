@@ -43,8 +43,23 @@ public class MemberService {
 	public void deleteMemberDTO(String id) {
 		MemberDAO.getInstance().deleteMemberDTO(id);
 	}
+
+	public MemberDTO selectMemberDTO(String id) throws MemberException {
+		MemberDTO dto = MemberDAO.getInstance().selectMemberDTO(id);
+		
+		if(dto == null)
+			throw new MemberException("수정할 회원정보가 없습니다.");
+		
+		return dto;
+	}
 	
 	
 	
 	
 }
+
+
+
+
+
+
