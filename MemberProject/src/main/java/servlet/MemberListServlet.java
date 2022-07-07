@@ -31,7 +31,16 @@ public class MemberListServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ArrayList<MemberDTO> list = MemberDAO.getInstance().selectMemberList();
+		
+		String kind = request.getParameter("kind");
+		String search = request.getParameter("search");
+		System.out.println(kind);
+		
+		ArrayList<MemberDTO> list = null;
+		if(kind == null)
+				list = MemberDAO.getInstance().selectMemberList();
+		else
+				list =	MemberDAO.getInstance().selectMemberList(kind, search); 
 		request.setAttribute("list", list);
 		request.getRequestDispatcher("member_list.jsp").forward(request, response);
 		
