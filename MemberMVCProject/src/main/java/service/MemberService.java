@@ -52,6 +52,10 @@ public class MemberService {
 		
 		return dto;
 	}
+
+	public int updateMemberDTO(MemberDTO dto) {
+		return MemberDAO.getInstance().updateMemberDTO(dto);
+	}
 	
 	
 	

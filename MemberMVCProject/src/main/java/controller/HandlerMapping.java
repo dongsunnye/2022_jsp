@@ -33,6 +33,9 @@ public class HandlerMapping {
 		case "updateView":
 			controller = new UpdateViewController();
 			break;
+		case "update":
+			controller = new UpdateController();
+			break;
 		}
 		
 		return controller;
