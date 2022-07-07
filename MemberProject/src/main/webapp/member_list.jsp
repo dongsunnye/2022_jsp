@@ -85,12 +85,28 @@
 				<caption>
 					<form action="memberList.do" method="get">
 						<select name="kind">
-							<option value="id">아이디</option>
-							<option value="name">이름</option>
-							<option value="gender">성별</option>
-							<option value="address">주소</option>
+							<option value="id"
+								<c:if test="${param.kind == 'id' }">
+									selected
+								</c:if>
+							>아이디</option>
+							<option value="name"
+								<c:if test="${param.kind == 'name' }">
+									selected
+								</c:if>
+							>이름</option>
+							<option value="gender"
+								<c:if test="${param.kind == 'gender' }">
+									selected
+								</c:if>
+							>성별</option>
+							<option value="address"
+								<c:if test="${param.kind == 'address' }">
+									selected
+								</c:if>
+							>주소</option>
 						</select>
-						<input type="text" name="search">
+						<input type="text" name="search" value="${param.search }">
 						<button>검색</button>
 					</form>
 				</caption>
