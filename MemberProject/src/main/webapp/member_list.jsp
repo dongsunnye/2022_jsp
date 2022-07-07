@@ -82,6 +82,18 @@
 		</nav>
 		<section>
 			<table>
+				<caption>
+					<form action="memberList.do" method="get">
+						<select name="kind">
+							<option value="id">아이디</option>
+							<option value="name">이름</option>
+							<option value="gender">성별</option>
+							<option value="address">주소</option>
+						</select>
+						<input type="text" name="search">
+						<button>검색</button>
+					</form>
+				</caption>
 				<tr>
 					<th>아이디</th>
 					<th>암호</th>

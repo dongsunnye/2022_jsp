@@ -106,10 +106,10 @@ li > button{
 				<input type="hidden" name="type" value="member">
 				<ul>
 					<li>
-						<input type="text" name="id" placeholder="아이디를 입력하세요" value="${sessionScope.dto.id }" readonly>
+						<input type="text" name="id" placeholder="아이디를 입력하세요" value="${requestScope.dto.id }" readonly>
 					</li>
 					<li>
-						<input type="password" name="passwd" placeholder="암호를 입력하세요">
+						<input type="password" name="passwd" placeholder="암호를 입력하세요" value="${requestScope.dto.pass }">
 					</li>
 					<li>
 						<input type="text" name="name" placeholder="이름을 입력하세요" value="${requestScope.dto.name }">
