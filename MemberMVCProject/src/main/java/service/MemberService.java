@@ -39,6 +39,10 @@ public class MemberService {
 		else
 			return MemberDAO.getInstance().selectMemberList(kind,search);
 	}
+
+	public void deleteMemberDTO(String id) {
+		MemberDAO.getInstance().deleteMemberDTO(id);
+	}
 	
 	
 	

@@ -128,7 +128,7 @@
 						<td>${m.age }</td>
 						<td>${m.gender }</td>
 						<td>${m.address }</td>
-						<td><a href="memberDelete.do?id=${m.id }">삭제</a></td>
+						<td><a href="memberDelete.do?command=delete&id=${m.id }">삭제</a></td>
 					</tr>
 				</c:forEach>		
 			</table>
