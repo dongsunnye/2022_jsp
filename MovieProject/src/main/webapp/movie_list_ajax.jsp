@@ -18,7 +18,7 @@
 				type:'get',
 				dataType:'json',
 				success:function(r){
-					
+					console.log(r);
 				},
 				error:function(xhr, textStaus, errorThrow){
 					
