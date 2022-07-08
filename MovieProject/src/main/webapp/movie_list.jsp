@@ -21,6 +21,17 @@
 	td,th{
 		padding:10px 20px;
 	}
+	a:link, a:visited {
+		color:black;
+		text-decoration: none;
+	}
+	.current{
+		color:red;
+		font-weight: bold;
+	}
+	tfoot td{
+		text-align: center;
+	}
 </style>
 </head>
 <body>
@@ -46,6 +57,25 @@
 				</tr>
 			</c:forEach>
 		</tbody>	
+		<tfoot>
+			<tr>
+				<td colspan="5">
+					<!-- pagging을 이용하여 페이지 번호 -->
+					<c:forEach var="i" begin="${requestScope.pagging.startPageOfPageGroup }" 
+					end="${requestScope.pagging.endPageOfPageGroup }">
+					<!-- 현재 페이지 번호는 제외하고 링크를 적용 -->
+					<c:choose>
+						<c:when test="${i == requestScope.pagging.currentPageNo }">
+							<span class="current">${i }</span> 					
+						</c:when>
+						<c:otherwise>
+							<a href="list.do?pageNo=${i }">${i }</a>
+						</c:otherwise>
+					</c:choose>
+					</c:forEach>
+				</td>
+			</tr>
+		</tfoot>
 	</table>
 </body>
 </html>
