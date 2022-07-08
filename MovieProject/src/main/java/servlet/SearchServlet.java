@@ -34,16 +34,20 @@ public class SearchServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		response.setContentType("text/html;charset=utf-8");
 		String kind = request.getParameter("kind");
 		String search = request.getParameter("search");
 		
 		System.out.println(kind + " " + search);
 		
 		ArrayList<MovieDTO> list = MovieDAO.getInstance().selectMovie(kind,search);
-		
-		JSONArray array = new JSONArray(list);
-		response.setContentType("text/html;charset=utf-8");
-		response.getWriter().write(array.toString());
+		if(list.size() == 0) {
+			response.setStatus(1001);
+			response.getWriter().write("검색 결과가 하나도 없습니다.");
+		}else {
+			JSONArray array = new JSONArray(list);
+			response.getWriter().write(array.toString());
+		}
 	}
 
 	/**

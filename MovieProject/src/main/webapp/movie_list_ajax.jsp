@@ -56,7 +56,13 @@
 					$("tbody").html(tag);
 				},
 				error:function(xhr, textStaus, errorThrow){
-					
+					console.log("code : ",xhr.status);
+					console.log("message : ",xhr.responseText);
+					console.log("error : ",errorThrow);
+					console.log("textStaus : ",textStaus);
+					var tag = "<tr><td colspan='6' style='text-align:center'>"
+													+xhr.responseText+"</td></tr>";
+					$("tbody").html(tag);
 				}
 			});
 		});
