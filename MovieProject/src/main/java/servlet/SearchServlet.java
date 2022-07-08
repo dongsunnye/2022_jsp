@@ -1,13 +1,19 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
+
+import dao.MovieDAO;
+import dto.MovieDTO;
 
 /**
  * Servlet implementation class SearchServlet
@@ -33,9 +39,11 @@ public class SearchServlet extends HttpServlet {
 		
 		System.out.println(kind + " " + search);
 		
-		JSONObject json = new JSONObject();
-		json.put("message", "Ajax 정상적으로 호출됨");
-		response.getWriter().write(json.toString());
+		ArrayList<MovieDTO> list = MovieDAO.getInstance().selectMovie(kind,search);
+		
+		JSONArray array = new JSONArray(list);
+		response.setContentType("text/html;charset=utf-8");
+		response.getWriter().write(array.toString());
 	}
 
 	/**
