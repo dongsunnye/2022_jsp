@@ -60,6 +60,10 @@
 		<tfoot>
 			<tr>
 				<td colspan="5">
+					<!-- 이전 페이지 그룹이 있으면 ◁ 이전그룹 마지막 페이지로 링크 -->
+					<c:if test="${requestScope.pagging.priviousPageGroup }">
+						<a href="list.do?pageNo=${requestScope.pagging.startPageOfPageGroup-1}">◁</a>
+					</c:if>
 					<!-- pagging을 이용하여 페이지 번호 -->
 					<c:forEach var="i" begin="${requestScope.pagging.startPageOfPageGroup }" 
 					end="${requestScope.pagging.endPageOfPageGroup }">
@@ -73,6 +77,11 @@
 						</c:otherwise>
 					</c:choose>
 					</c:forEach>
+					
+					<!-- 다음 페이지 그룹이 있으면 ▷ 다음 그룹 첫번째 페이지로 링크 -->
+					<c:if test="${requestScope.pagging.nextPageGroup }">
+						<a href="list.do?pageNo=${requestScope.pagging.endPageOfPageGroup+1}">▷</a>
+					</c:if>
 				</td>
 			</tr>
 		</tfoot>
