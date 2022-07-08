@@ -28,6 +28,12 @@ public class DispatcherServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println(request.getRequestURI());
 		System.out.println(request.getRequestURL());
+		System.out.println(request.getServletPath().split("/")[1]);
+		String[] arr = request.getRequestURI().split("/");
+//		for(int i=0;i<arr.length;i++)
+//			System.out.println(arr[i]);
+		System.out.println(arr[arr.length-1]);
+			
 	}
 
 	/**
