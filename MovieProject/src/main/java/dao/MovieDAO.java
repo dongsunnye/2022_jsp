@@ -3,8 +3,10 @@ package dao;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import config.DBManager;
+import dto.MovieDTO;
 
 public class MovieDAO {
 	private static MovieDAO instance = new MovieDAO();
@@ -33,6 +35,33 @@ public class MovieDAO {
 			DBManager.getInstance().close(rs, pstmt);
 		}
 		return count;
+	}
+
+	public ArrayList<MovieDTO> selectMovieList(int pageNo) {
+		ArrayList<MovieDTO> list = new ArrayList<MovieDTO>();
+		String sql = "select * from (select ceil(rownum / 7) as page_no, "
+				+ "m.* from (select * from movie order by bno desc) m) "
+				+ "where page_no = ?";
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			pstmt = DBManager.getInstance().getConn().prepareStatement(sql);
+			pstmt.setInt(1, pageNo);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				list.add(new MovieDTO(rs.getInt(2), rs.getString(3), 
+						rs.getString(4), rs.getInt(5), rs.getString(6)));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.getInstance().close(rs, pstmt);
+		}
+		
+		
+		return list;
 	}
 
 	
