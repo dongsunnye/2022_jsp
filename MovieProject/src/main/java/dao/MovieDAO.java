@@ -64,6 +64,35 @@ public class MovieDAO {
 		return list;
 	}
 
+	public ArrayList<MovieDTO> selectMovie(String kind, String search) {
+		ArrayList<MovieDTO> list = new ArrayList<MovieDTO>();
+		String sql = "select * from movie ";
+		if(kind.equals("year"))
+			sql += "where to_char(open_date,'RRRR') = ?";
+		else
+			sql += "where "+kind+" like '%' || ? || '%'";
+			
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			pstmt = DBManager.getInstance().getConn().prepareStatement(sql);
+			pstmt.setString(1, search);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				list.add(new MovieDTO(rs.getInt(1), rs.getString(2), 
+						rs.getString(3), rs.getInt(4), rs.getString(5)));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.getInstance().close(rs, pstmt);
+		}
+		
+		
+		return list;
+	}
+
 	
 }
 
