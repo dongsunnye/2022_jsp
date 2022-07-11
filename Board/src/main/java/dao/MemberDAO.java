@@ -21,7 +21,7 @@ public class MemberDAO {
 	}
 	public MemberDTO login(String id, String passwd) {
 		MemberDTO dto = null;
-		String sql = "select * from board_member, grade "
+		String sql = "select board_member.*, grade.grade_name from board_member, grade "
 				+ "where grade.grade_no = board_member.grade_no "
 				+ "and id like ? and passwd like ?";
 		PreparedStatement pstmt = null;
