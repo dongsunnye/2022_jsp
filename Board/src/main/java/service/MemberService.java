@@ -3,6 +3,8 @@ package service;
 import java.sql.Connection;
 
 import config.DBManager;
+import dao.MemberDAO;
+import dto.MemberDTO;
 
 public class MemberService {
 	private static MemberService instance = new MemberService();
@@ -14,6 +16,10 @@ public class MemberService {
 		if(instance == null)
 			instance = new MemberService();
 		return instance;
+	}
+	
+	public MemberDTO login(String id, String passwd) {
+		return MemberDAO.getInstance().login(id, passwd);
 	}
 	
 }

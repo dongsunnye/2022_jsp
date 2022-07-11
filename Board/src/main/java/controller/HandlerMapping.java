@@ -15,10 +15,22 @@ public class HandlerMapping {
 		Controller controller = null;
 		
 		switch(command) {
-		
+		case "login.do":
+			controller = new LoginController();
+			break;
 		}
 		
 		return controller;
 	}
 
 }
+
+
+
+
+
+
+
+
+
+
