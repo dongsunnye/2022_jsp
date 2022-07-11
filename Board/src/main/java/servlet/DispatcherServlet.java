@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import controller.Controller;
 import controller.HandlerMapping;
+import view.ModelAndView;
 
 /**
  * Servlet implementation class DispatcherServlet
@@ -38,7 +39,12 @@ public class DispatcherServlet extends HttpServlet {
 		if(controller != null)
 			view = controller.execute(request, response);
 		
+		if(view == null) return;
 		
+		if(view.isRedirect())
+			response.sendRedirect(view.getPath());
+		else
+			request.getRequestDispatcher(view.getPath()).forward(request, response);
 		
 	}
 
