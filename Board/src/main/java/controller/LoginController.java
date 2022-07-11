@@ -21,6 +21,9 @@ public class LoginController implements Controller {
 		ModelAndView view = null;
 		if(dto != null) {
 			view = new ModelAndView("main.do", true);
+			//세션에 회원 정보 저장
+			dto.setPasswd(null);
+			request.getSession().setAttribute("dto", dto);
 		}else {
 			response.getWriter().
 				write("<script>alert('아이디와 비밀번호를 확인하세요');history.back();</script>");
