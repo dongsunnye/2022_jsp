@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dto.BoardDTO;
+import service.BoardService;
 import view.ModelAndView;
 
 public class BoardWriterController implements Controller {
@@ -21,7 +22,9 @@ public class BoardWriterController implements Controller {
 		BoardDTO dto = new BoardDTO(title, writer, content);
 		
 		
-		return null;
+		BoardService.getInstance().insertBoard(dto);
+		
+		return new ModelAndView("main.do", true);
 	}
 
 }
