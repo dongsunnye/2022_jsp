@@ -24,6 +24,9 @@ public class HandlerMapping {
 		case "logout.do":
 			controller = new LogoutController();
 			break;
+		case "boardWrite.do":
+			controller = new BoardWriterController();
+			break;
 		}
 		
 		return controller;
