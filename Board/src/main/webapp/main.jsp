@@ -52,6 +52,9 @@
 					</tr>
 				</c:forEach>
 				</tbody>
+				<tfoot>
+					<!-- 게시판 페이징 처리 -->
+				</tfoot>
 			</table>		
 		</section>
 </body>
