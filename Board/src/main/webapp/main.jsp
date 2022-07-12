@@ -82,6 +82,19 @@
 				</tbody>
 				<tfoot>
 					<!-- 게시판 페이징 처리 -->
+					<tr>
+						<td>
+							<!-- 이전 페이지 그룹으로 이동 -->
+							<c:if test="${requestScope.pagging.priviousPageGroup }">
+								<a href="${requestScope.pagging.startPageOfPageGroup-1}">◀</a>
+							</c:if>
+							
+							<!-- 다음 페이지 그룹으로 이동 -->
+							<c:if test="${requestScope.pagging.nextPageGroup }">
+								<a href="${requestScope.pagging.endPageOfPageGroup+1}">▶</a>
+							</c:if>
+						</td>
+					</tr>
 				</tfoot>
 			</table>		
 		</section>
