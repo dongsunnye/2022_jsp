@@ -89,16 +89,19 @@ select b.bno, b.title, b.writer, bm.nick, b.bcount, b.bdate,
 from board b, board_member bm
 where b.writer = bm.id order by bno desc;
 
-create view board_view
+create or replace view board_view
 as 
 select b.bno, b.title, b.writer, bm.nick, b.bcount, b.bdate,
 (select count(*) from board_like bl where bl.bno = b.bno) as blike,
-(select count(*) from board_hate bh where bh.bno = b.bno) as bhate
+(select count(*) from board_hate bh where bh.bno = b.bno) as bhate,
+content
 from board b, board_member bm
 where b.writer = bm.id order by bno desc;
 
 select * from (select ceil(rownum / 15) as pageNo, b.* from board_view b)
 where pageNo = 1;
+
+select * from board_view where bno = 23;
 
 --전체 게시글 개수
 select count(*) from board_view;
@@ -108,6 +111,12 @@ values(board_bno.nextval,'제목','A0001','내용',0);
 
 insert into board(bno, title, writer, content, bcount) values(board_bno.nextval,?,?,?,0);
 
+select b.bno, b.title, b.writer, bm.nick, b.bcount, b.bdate,
+(select count(*) from board_like bl where bl.bno = b.bno) as blike,
+(select count(*) from board_hate bh where bh.bno = b.bno) as bhate,
+content
+from board b, board_member bm
+where b.writer = bm.id and b.bno = 23 order by bno desc;
 
 
 

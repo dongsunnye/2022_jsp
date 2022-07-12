@@ -80,6 +80,29 @@ public class BoardDAO {
 			DBManager.getInstance().close(null, pstmt);
 		}
 	}
+	public BoardDTO selectBoard(int bno) {
+		String sql = "select * from board_view where bno = ?";
+		ResultSet rs = null;
+		PreparedStatement pstmt = null;
+		BoardDTO dto = null;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bno);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				dto = new BoardDTO(rs.getInt(1), rs.getString(2), 
+						rs.getString(3), rs.getString(4), rs.getInt(5),
+						rs.getString(6), rs.getInt(7), rs.getInt(8),rs.getString(9)); 
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.getInstance().close(rs, pstmt);
+		}
+		
+		return dto;
+	}
 	
 }
 

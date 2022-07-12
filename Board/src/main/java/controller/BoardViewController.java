@@ -21,7 +21,7 @@ public class BoardViewController implements Controller {
 		
 		request.setAttribute("board", dto);
 		
-		return null;
+		return new ModelAndView("board_view.jsp", false);
 	}
 
 }
