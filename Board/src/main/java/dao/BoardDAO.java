@@ -47,8 +47,29 @@ public class BoardDAO {
 		
 		return list;
 	}
+	public int selectAllCount() {
+		int count = 0;
+		String sql = "select count(*) from board_view";
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			if(rs.next())
+				count = rs.getInt(1);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return count;
+	}
 	
 }
+
+
+
+
+
 
 
 

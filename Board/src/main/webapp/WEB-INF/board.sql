@@ -100,6 +100,16 @@ where b.writer = bm.id order by bno desc;
 select * from (select ceil(rownum / 15) as pageNo, b.* from board_view b)
 where pageNo = 1;
 
+--전체 게시글 개수
+select count(*) from board_view;
+
+
+
+
+
+
+
+
 
 
 

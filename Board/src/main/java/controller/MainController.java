@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import dto.BoardDTO;
 import service.BoardService;
 import view.ModelAndView;
+import vo.PaggingVO;
 
 public class MainController implements Controller {
 
@@ -23,6 +24,10 @@ public class MainController implements Controller {
 		
 		ArrayList<BoardDTO> list = BoardService.getInstance().selectBoardList(pageNo);
 		request.setAttribute("board_list", list);
+		
+		int count = BoardService.getInstance().selectAllCount();
+		PaggingVO vo = new PaggingVO(count, pageNo, 15, 5);
+		request.setAttribute("pagging", vo);
 		
 		ModelAndView view = new ModelAndView("main.jsp", false);
 		

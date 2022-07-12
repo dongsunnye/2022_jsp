@@ -6,6 +6,34 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+	nav{
+		width: 1200px;
+		margin:0 auto;
+	}
+	nav > ul{
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		list-style-type: none;
+	}
+	nav > ul > li{
+		width: 200px;
+	}
+	section{
+		width: 1200px;
+		margin:0 auto;
+	}
+	section table{
+		width: 90%;
+		border-collapse: collapse;
+	}
+	section table td,section table th{
+		border:1px solid black;
+		text-align: center;
+		padding:10px 0px;
+	}
+</style>
 </head>
 <body>
 		<!-- 회원등급이 1인지 확인을 한 후에 1이면 '권한이 없습니다' 경고창을 띄운후 이전페이지로 이동   -->

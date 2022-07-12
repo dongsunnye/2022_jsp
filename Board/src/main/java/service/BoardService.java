@@ -21,6 +21,9 @@ public class BoardService {
 	public ArrayList<BoardDTO> selectBoardList(int pageNo) {
 		return BoardDAO.getInstance().selectBoardList(pageNo);
 	}
+	public int selectAllCount() {
+		return BoardDAO.getInstance().selectAllCount();
+	}
 	
 }
 
