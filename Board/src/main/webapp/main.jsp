@@ -83,7 +83,7 @@
 				<tfoot>
 					<!-- 게시판 페이징 처리 -->
 					<tr>
-						<td>
+						<td colspan="7">
 							<!-- 이전 페이지 그룹으로 이동 -->
 							<c:if test="${requestScope.pagging.priviousPageGroup }">
 								<a href="main.do?pageNo=${requestScope.pagging.startPageOfPageGroup-1}">◀</a>
@@ -92,7 +92,7 @@
 							<c:forEach var="i" begin="${requestScope.pagging.startPageOfPageGroup}" 
 							end="${requestScope.pagging.endPageOfPageGroup}">
 								<c:choose>
-									<c:when test="${i == requestScope.pagging.currentPage }">
+									<c:when test="${i == requestScope.pagging.currentPageNo }">
 									${i }						
 									</c:when>
 									<c:otherwise>
