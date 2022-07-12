@@ -33,6 +33,33 @@
 		text-align: center;
 		padding:10px 0px;
 	}
+	section tfoot{
+		font-size: 0px;
+	}
+	section tfoot a:link,section tfoot a:visited{
+		display: inline-block;
+		padding:0px 10px;
+		text-decoration: none;
+		color:black;
+		font-size: 16px !important;
+	}
+	
+	.current_page{
+		display: inline-block;
+		padding:0px 10px;
+		font-size: 16px !important;
+		color:red;
+		font-weight: bold;
+	}
+	tfoot > tr > td{
+		position: relative;
+	}
+	.btn_write{
+		display: inline-block;
+		padding:0px 20px !important;
+		position: absolute;
+		right:0px;
+	}
 </style>
 </head>
 <body>
@@ -93,10 +120,10 @@
 							end="${requestScope.pagging.endPageOfPageGroup}">
 								<c:choose>
 									<c:when test="${i == requestScope.pagging.currentPageNo }">
-									${i }						
+										<span class="current_page">${i }</span>
 									</c:when>
 									<c:otherwise>
-										<a href="main.do?pageNo=${i }">${i }</a>							
+										<a href="main.do?pageNo=${i }">${i }</a>
 									</c:otherwise>
 								</c:choose>
 							</c:forEach>
@@ -105,6 +132,7 @@
 							<c:if test="${requestScope.pagging.nextPageGroup }">
 								<a href="main.do?pageNo=${requestScope.pagging.endPageOfPageGroup+1}">▶</a>
 							</c:if>
+							<a href="board_write_view.jsp" class="btn_write">글쓰기</a>
 						</td>
 					</tr>
 				</tfoot>
