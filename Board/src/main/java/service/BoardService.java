@@ -24,6 +24,9 @@ public class BoardService {
 	public int selectAllCount() {
 		return BoardDAO.getInstance().selectAllCount();
 	}
+	public void insertBoard(BoardDTO dto) {
+		BoardDAO.getInstance().insertBoard(dto);
+	}
 	
 }
 

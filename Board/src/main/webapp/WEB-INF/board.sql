@@ -102,9 +102,11 @@ where pageNo = 1;
 
 --전체 게시글 개수
 select count(*) from board_view;
+--게시글 등록
+insert into board(bno, title, writer, content, bcount) 
+values(board_bno.nextval,'제목','A0001','내용',0);
 
-
-
+insert into board(bno, title, writer, content, bcount) values(board_bno.nextval,?,?,?,0);
 
 
 
