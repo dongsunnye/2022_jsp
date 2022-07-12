@@ -86,12 +86,24 @@
 						<td>
 							<!-- 이전 페이지 그룹으로 이동 -->
 							<c:if test="${requestScope.pagging.priviousPageGroup }">
-								<a href="${requestScope.pagging.startPageOfPageGroup-1}">◀</a>
+								<a href="main.do?pageNo=${requestScope.pagging.startPageOfPageGroup-1}">◀</a>
 							</c:if>
+							<!-- 페이지 번호 출력 -->
+							<c:forEach var="i" begin="${requestScope.pagging.startPageOfPageGroup}" 
+							end="${requestScope.pagging.endPageOfPageGroup}">
+								<c:choose>
+									<c:when test="${i == requestScope.pagging.currentPage }">
+									${i }						
+									</c:when>
+									<c:otherwise>
+										<a href="main.do?pageNo=${i }">${i }</a>							
+									</c:otherwise>
+								</c:choose>
+							</c:forEach>
 							
 							<!-- 다음 페이지 그룹으로 이동 -->
 							<c:if test="${requestScope.pagging.nextPageGroup }">
-								<a href="${requestScope.pagging.endPageOfPageGroup+1}">▶</a>
+								<a href="main.do?pageNo=${requestScope.pagging.endPageOfPageGroup+1}">▶</a>
 							</c:if>
 						</td>
 					</tr>
