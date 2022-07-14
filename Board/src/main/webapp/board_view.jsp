@@ -14,6 +14,10 @@
 			//alert(d);
 			location.href=d;
 		});
+		$("#btn_update").click(function(){
+			var d = "boardUpdateView.do?bno=${requestScope.board.bno}";
+			location.href=d;
+		});
 	});
 </script>
 </head>
