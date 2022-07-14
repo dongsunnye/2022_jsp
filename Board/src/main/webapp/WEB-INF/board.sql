@@ -134,7 +134,7 @@ content
 from board b, board_member bm
 where b.writer = bm.id and b.bno = 23 order by bno desc;
 
-
+update board set bcount = bcount + 1 where bno = 81;
 
 
 

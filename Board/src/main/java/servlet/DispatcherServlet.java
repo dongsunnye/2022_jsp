@@ -30,6 +30,7 @@ public class DispatcherServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//		System.out.println(request.getSession().getId());
 		response.setContentType("text/html;charset=utf-8");
 		String[] arr = request.getRequestURI().split("/");
 		String command = arr[arr.length-1];

@@ -18,6 +18,21 @@
 			var d = "boardUpdateView.do?bno=${requestScope.board.bno}";
 			location.href=d;
 		});
+		$("#btn_like").click(function(){
+			var d = "bno=${requestScope.board.bno}";
+			$.ajax({
+				url : "boardLike.do",
+				data:d,
+				type:"get",
+				success:function(r){
+					if(r == "1")
+						alert("이 글을 추천하셨습니다.");
+					else
+						alert("이 글을 추천을 취소 하셨습니다.");
+					location.reload();
+				}
+			});
+		});
 	});
 </script>
 </head>
@@ -46,8 +61,8 @@
 		</tr>
 		<tr>
 			<td colspan="2"> 
-				<a href="#">좋아요 ${requestScope.board.like}</a>
-				<a href="#">싫어요 ${requestScope.board.hate}</a>
+				<a href="#" id="btn_like">좋아요 ${requestScope.board.like}</a>
+				<a href="#" id="btn_hate">싫어요 ${requestScope.board.hate}</a>
 			</td>
 		</tr>
 		<c:if test="${requestScope.board.writer == sessionScope.dto.id }">

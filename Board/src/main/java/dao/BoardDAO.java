@@ -133,6 +133,21 @@ public class BoardDAO {
 			DBManager.getInstance().close(null, pstmt);
 		}		
 	}
+	public void addCountBoard(int bno) {
+		String sql = "update board set bcount = bcount + 1 where bno = ?";
+		PreparedStatement pstmt = null;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bno);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.getInstance().close(null, pstmt);
+		}
+		
+	}
 	
 }
 
