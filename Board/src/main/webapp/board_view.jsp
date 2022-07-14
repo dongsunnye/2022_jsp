@@ -33,6 +33,21 @@
 				}
 			});
 		});
+		$("#btn_hate").click(function(){
+			var d = "bno=${requestScope.board.bno}";
+			$.ajax({
+				url : "boardHate.do",
+				data:d,
+				type:"get",
+				success:function(r){
+					if(r == "1")
+						alert("이 글을 싫어요 하셨습니다.");
+					else
+						alert("이 글을 싫어요를 취소 하셨습니다.");
+					location.reload();
+				}
+			});
+		});
 	});
 </script>
 </head>
