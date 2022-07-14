@@ -59,6 +59,7 @@
 	<section>
 		<h2>게시글 수정</h2>
 		<form action="boardUpdate.do" method="post">
+			<input type="hidden" name="bno" value="${requestScope.board.bno }">
 			<input type="text" name="title" placeholder="제목을 입력하세요" value="${requestScope.board.title }">
 			<textarea name="content" placeholder="내용을 입력하세요">${requestScope.board.content }</textarea>
 			<div class="form_bar">

@@ -10,18 +10,27 @@ import dto.BoardDTO;
 import service.BoardService;
 import view.ModelAndView;
 
-public class BoardViewController implements Controller {
+public class BoardUpdateController implements Controller {
 
 	@Override
 	public ModelAndView execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		int bno = Integer.parseInt(request.getParameter("bno"));
+		String title = request.getParameter("title");
+		String content = request.getParameter("content");
+		System.out.println(content);
+		BoardDTO dto = new BoardDTO();
+		dto.setBno(bno);
+		dto.setTitle(title);
+		dto.setContent(content);
 		
-		BoardDTO dto = BoardService.getInstance().selectBoard(bno);
-		dto.setContent(dto.getContent().replaceAll("\n", "<br>"));
-		request.setAttribute("board", dto);
+		BoardService.getInstance().updateBoard(dto);
 		
-		return new ModelAndView("board_view.jsp", false);
+		
+		return new ModelAndView("boardView.do?bno="+bno, false);
 	}
 
 }
+
+
+
