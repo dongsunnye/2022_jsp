@@ -39,8 +39,22 @@ public class BoardService {
 	public void addBoardCount(int bno) {
 		BoardDAO.getInstance().addCountBoard(bno);
 	}
+	public int insertBoardLike(int bno,String id) {
+		int result = BoardDAO.getInstance().insertBoardLike(bno, id);
+		if(result == 0)
+			BoardDAO.getInstance().deleteBoardLike(bno, id);
+		return result;
+	}
 	
 }
+
+
+
+
+
+
+
+
 
 
 

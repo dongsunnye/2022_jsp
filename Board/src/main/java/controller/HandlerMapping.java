@@ -39,6 +39,9 @@ public class HandlerMapping {
 		case "boardUpdate.do":
 			controller = new BoardUpdateController();
 			break;
+		case "boardLike.do":
+			controller = new BoardLikeController();
+			break;
 		}
 		
 		return controller;
