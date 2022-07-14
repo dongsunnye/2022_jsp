@@ -26,6 +26,9 @@
 	section p{
 		text-align:center;
 	}
+	section div form{
+		text-align:center;
+	}
 	td,th{
 		padding:10px;
 	}
@@ -38,7 +41,13 @@
 		location.href="delete.do?"+d;
 	}
 	function update_employee(obj){
-		
+		var d = "update.do?";
+		$.each($(obj).parent().parent().find("input,select"),function(i,o){
+		//	console.log($(o).attr("name"),$(o).val());
+			d += $(o).attr("name") + "=" + $(o).val() + "&";
+		});
+		console.log(d);
+		location.href = d;
 	}
 	$(function() {
 		$(".update").click(function(){
@@ -67,8 +76,38 @@
 			</p>
 		</nav>
 		<section>
+			<div> 
+				<form action="main.do">
+					<select name="kind">
+						<option value="name">이름</option>
+						<option value="eno">사번</option>
+						<option value="department">부서</option>
+					</select>
+					<input type="text" name="search" placeholder="검색어 입력"><button>검색</button>
+				</form>
+			</div>
 			<table>
 				<thead>
+					<tr>
+						<td colspan="6">
+							<form action="register.do">
+								<input type="text" name="eno" placeholder="사번 입력">
+								<input type="text" name="name" placeholder="이름 입력">
+								<input type="text" name="department" placeholder="부서명 입력">
+								<select name="position">
+									<option value="1">사원</option>
+									<option value="2">주임</option>
+									<option value="3">대리</option>
+									<option value="4">과장</option>
+									<option value="5">차장</option>
+									<option value="6">부장</option>
+									<option value="7">사장</option>
+								</select>
+								<input type="text" name="salary" placeholder="급여 입력">
+								<button>사원등록</button>
+							</form>
+						</td>
+					</tr>
 					<tr>
 						<th>사번</th>
 						<th>이름</th>

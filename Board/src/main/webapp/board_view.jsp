@@ -7,6 +7,15 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$("#btn_delete").click(function(){
+			var d = "boardDelete.do?bno=${requestScope.board.bno}";
+			//alert(d);
+			location.href=d;
+		});
+	});
+</script>
 </head>
 <body>
 	<table>

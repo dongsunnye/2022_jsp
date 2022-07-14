@@ -32,6 +32,21 @@ public class EmployeeService {
 		EmployeeDAO.getInstance().deleteEmployee(eno);
 	}
 
+	public void updateEmployee(EmployeeDTO dto) {
+		EmployeeDAO.getInstance().updateEmployee(dto);
+		EmployeeDAO.getInstance().updateSalary(dto.getEno(),dto.getSalary());
+		
+	}
+
+	public void insertEmployee(EmployeeDTO dto) {
+		EmployeeDAO.getInstance().insertEmployee(dto);
+		EmployeeDAO.getInstance().insertSalary(dto.getEno(),dto.getSalary());
+	}
+
+	public ArrayList<EmployeeDTO> selectEmployee(String kind, String search) {
+		return EmployeeDAO.getInstance().selectEmployee(kind,search);
+	}
+
 	
 	
 }

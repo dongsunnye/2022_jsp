@@ -27,7 +27,12 @@ public class HandlerMapping {
 		case "main.do":
 			controller = new MainController();
 			break;
-		
+		case "update.do":
+			controller = new UpdateController();
+			break;
+		case "register.do":
+			controller = new RegisterController();
+			break;
 		}
 		
 		

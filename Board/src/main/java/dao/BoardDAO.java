@@ -103,6 +103,20 @@ public class BoardDAO {
 		
 		return dto;
 	}
+	public void deleteBoard(int bno) {
+		String sql = "delete from board where bno = ?";
+		PreparedStatement pstmt = null;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bno);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.getInstance().close(null, pstmt);
+		}
+	}
 	
 }
 
