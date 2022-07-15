@@ -89,6 +89,11 @@
 		</tr>		
 		</c:if>
 	</table>
+	<form action="commentWrite.do" method="post">
+		<input type="hidden" name="bno" value="${requestScope.board.bno }">
+		<textarea name="comment" placeholder="댓글을 입력하세요"></textarea>
+		<button>댓글작성</button>
+	</form>
 </body>
 </html>
 
