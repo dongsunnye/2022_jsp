@@ -230,8 +230,26 @@ public class BoardDAO {
 		}
 	}
 	public ArrayList<BoardCommentDTO> selectBoardCommentList(int bno) {
-		String sql = "";
-		return null;
+		String sql = "select * from board_comment_view where bno = ?";
+		ArrayList<BoardCommentDTO> list = new ArrayList<BoardCommentDTO>();
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, bno);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				list.add(new BoardCommentDTO(rs.getInt(1), rs.getInt(2), rs.getString(3),
+						rs.getString(4), rs.getString(5), rs.getInt(6),rs.getInt(7)));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		
+		return list;
 	}
 	
 }

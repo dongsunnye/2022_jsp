@@ -94,6 +94,21 @@
 		<textarea name="comment" placeholder="댓글을 입력하세요"></textarea>
 		<button>댓글작성</button>
 	</form>
+	<hr>
+	<c:forEach var="comment" items="${requestScope.list }">
+		<div>
+			<p>
+				<span>${ comment.writer}</span><span>작성일 : ${comment.date }</span>
+				<span>좋아요 : ${comment.like }</span><span>싫어요 : ${comment.hate}</span>
+			</p>
+			<p>
+				${comment.comment }
+			</p>
+			<c:if test="${sessionScope.dto.id == comment.writer }">
+				<a href="commentDelete.do?cno=${comment.cno }">댓글삭제</a>
+			</c:if>
+		</div>
+	</c:forEach>
 </body>
 </html>
 
