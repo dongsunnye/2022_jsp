@@ -105,7 +105,7 @@
 				${comment.comment }
 			</p>
 			<c:if test="${sessionScope.dto.id == comment.writer }">
-				<a href="commentDelete.do?cno=${comment.cno }">댓글삭제</a>
+				<a href="commentDelete.do?cno=${comment.cno }&bno=${requestScope.board.bno}">댓글삭제</a>
 			</c:if>
 		</div>
 	</c:forEach>
