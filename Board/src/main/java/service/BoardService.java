@@ -55,6 +55,9 @@ public class BoardService {
 	public void insertBoardComment(BoardCommentDTO boardCommentDTO) {
 		BoardDAO.getInstance().insertBoardComment(boardCommentDTO);
 	}
+	public ArrayList<BoardCommentDTO> selectCommentList(int bno) {
+		return BoardDAO.getInstance().selectBoardCommentList(bno);
+	}
 	
 }
 

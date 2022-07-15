@@ -229,6 +229,10 @@ public class BoardDAO {
 			DBManager.getInstance().close(null, pstmt);
 		}
 	}
+	public ArrayList<BoardCommentDTO> selectBoardCommentList(int bno) {
+		String sql = "";
+		return null;
+	}
 	
 }
 

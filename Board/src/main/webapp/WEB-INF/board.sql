@@ -104,7 +104,13 @@ CREATE TABLE BOARD_COMMENT_HATE(
     CONSTRAINT BOARD_COMMENT_HATE_CNO_FK FOREIGN KEY(CNO) REFERENCES BOARD_COMMENT(CNO)
 );
 
-
+create or replace view board_comment_view
+as
+select bc.cno, bc.bno, bc.contetnt, bc.writer, bc.cdate,
+(select count(*) from board_comment_LIKE where bno = bc.bno) as clike,
+(select count(*) from board_comment_hate where bno = bc.bno) as chate
+from board_comment bc;
+	
 --로그인
 select * from board_member, grade where  grade.grade_no = board_member.grade_no ;
 
