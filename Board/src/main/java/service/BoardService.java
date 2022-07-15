@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import config.DBManager;
 import dao.BoardDAO;
+import dto.BoardCommentDTO;
 import dto.BoardDTO;
 
 public class BoardService {
@@ -50,6 +51,9 @@ public class BoardService {
 		if(result == 0)
 			BoardDAO.getInstance().deleteBoardHate(bno, id);
 		return result;
+	}
+	public void insertBoardComment(BoardCommentDTO boardCommentDTO) {
+		BoardDAO.getInstance().insertBoardComment(boardCommentDTO);
 	}
 	
 }

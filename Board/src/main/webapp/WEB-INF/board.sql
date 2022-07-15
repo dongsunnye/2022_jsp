@@ -74,6 +74,17 @@ CREATE TABLE BOARD_COMMENT(
     BNO NUMBER,
     WRITER VARCHAR2(30 BYTE)
 );
+--외래키
+alter table board_comment add constraint board_comment_fk 
+foreign key(writer) references board_member(id);
+
+--댓글 번호 시퀸스
+create sequence board_comment_cno start with 1 nomaxvalue;
+
+insert into board_comment(cno,contetnt,bno,writer) values(board_comment_cno.nextval,'댓글내용',
+83,'A0001');
+
+
 --댓글 좋아요 테이블
 --댓글 번호, 회원아이디
 CREATE TABLE BOARD_COMMENT_LIKE(
