@@ -266,6 +266,38 @@ public class BoardDAO {
 		}
 		
 	}
+	public int insertBoardCommentLike(int cno, String id) {
+		String sql = "insert into board_comment_like values(?,?)";
+		PreparedStatement pstmt = null;
+		int result = 0;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, cno);
+			pstmt.setString(2, id);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.getInstance().close(null, pstmt);
+		}
+		return result;
+	}
+	public int deleteBoardCommentLike(int cno, String id) {
+		String sql = "delete from board_comment_like where cno = ? and id = ?";
+		PreparedStatement pstmt = null;
+		int result = 0;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, cno);
+			pstmt.setString(2, id);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.getInstance().close(null, pstmt);
+		}
+		return result;
+	}
 	
 }
 

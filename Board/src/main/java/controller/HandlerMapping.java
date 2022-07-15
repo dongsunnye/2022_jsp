@@ -51,6 +51,9 @@ public class HandlerMapping {
 		case "commentDelete.do":
 			controller = new CommentDeleteController();
 			break;
+		case "boardCommentLike.do":
+			controller = new CommentLikeControler();
+			break;
 		}
 		
 		return controller;

@@ -33,6 +33,21 @@
 				}
 			});
 		});
+		$(".btn_comment_like").click(function(){
+			var d = "cno="+$(this).parent().parent().find("input").val();
+			$.ajax({
+				url : "boardCommentLike.do",
+				data:d,
+				type:"get",
+				success:function(r){
+					if(r == "1")
+						alert("이 댓글을 추천하셨습니다.");
+					else
+						alert("이 댓글을 추천을 취소 하셨습니다.");
+					location.reload();
+				}
+			});
+		});
 		$("#btn_hate").click(function(){
 			var d = "bno=${requestScope.board.bno}";
 			$.ajax({
@@ -98,8 +113,10 @@
 	<c:forEach var="comment" items="${requestScope.list }">
 		<div>
 			<p>
+				<input type="hidden" name="cno" value="${comment.cno }">
 				<span>${ comment.writer}</span><span>작성일 : ${comment.date }</span>
-				<span>좋아요 : ${comment.like }</span><span>싫어요 : ${comment.hate}</span>
+				<span><a href="#" class="btn_comment_like">좋아요 : ${comment.like }</a></span>
+				<span><a href="#" class="btn_comment_hate">싫어요 : ${comment.hate}</a></span>
 			</p>
 			<p>
 				${comment.comment }
