@@ -67,6 +67,12 @@ public class BoardService {
 			BoardDAO.getInstance().deleteBoardCommentLike(cno,id);
 		return result;
 	}
+	public int insertBoardCommentHate(int cno, String id) {
+		int result =BoardDAO.getInstance().insertBoardCommentHate(cno,id);
+		if(result == 0)
+			BoardDAO.getInstance().deleteBoardCommentHate(cno,id);
+		return result;
+	}
 	
 }
 

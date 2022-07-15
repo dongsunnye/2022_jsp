@@ -298,6 +298,39 @@ public class BoardDAO {
 		}
 		return result;
 	}
+	public int insertBoardCommentHate(int cno, String id) {
+		String sql = "insert into board_comment_hate values(?,?)";
+		PreparedStatement pstmt = null;
+		int result = 0;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, cno);
+			pstmt.setString(2, id);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.getInstance().close(null, pstmt);
+		}
+		return result;
+	}
+	public int deleteBoardCommentHate(int cno, String id) {
+		String sql = "delete from board_comment_hate where cno = ? and id = ?";
+		PreparedStatement pstmt = null;
+		int result = 0;
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, cno);
+			pstmt.setString(2, id);
+			result = pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.getInstance().close(null, pstmt);
+		}
+		return result;
+		
+	}
 	
 }
 

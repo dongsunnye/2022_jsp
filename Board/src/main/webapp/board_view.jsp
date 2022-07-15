@@ -48,6 +48,21 @@
 				}
 			});
 		});
+		$(".btn_comment_hate").click(function(){
+			var d = "cno="+$(this).parent().parent().find("input").val();
+			$.ajax({
+				url : "boardCommentHate.do",
+				data:d,
+				type:"get",
+				success:function(r){
+					if(r == "1")
+						alert("이 댓글을 싫어요 하셨습니다.");
+					else
+						alert("이 댓글을 싫어요를 취소 하셨습니다.");
+					location.reload();
+				}
+			});
+		});
 		$("#btn_hate").click(function(){
 			var d = "bno=${requestScope.board.bno}";
 			$.ajax({
