@@ -58,6 +58,9 @@ public class BoardService {
 	public ArrayList<BoardCommentDTO> selectCommentList(int bno) {
 		return BoardDAO.getInstance().selectBoardCommentList(bno);
 	}
+	public void deleteBoardComment(int cno) {
+		BoardDAO.getInstance().deleteBoardComment(cno);		
+	}
 	
 }
 

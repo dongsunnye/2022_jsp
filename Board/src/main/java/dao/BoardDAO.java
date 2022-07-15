@@ -251,6 +251,21 @@ public class BoardDAO {
 		
 		return list;
 	}
+	public void deleteBoardComment(int cno) {
+		String sql = "delete from board_comment where cno = ?";
+		PreparedStatement pstmt = null;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, cno);
+			pstmt.executeUpdate();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			DBManager.getInstance().close(null, pstmt);
+		}
+		
+	}
 	
 }
 
