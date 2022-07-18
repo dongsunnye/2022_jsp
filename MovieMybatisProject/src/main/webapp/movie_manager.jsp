@@ -11,7 +11,20 @@
 		$("#frm").submit(function(e){
 			e.preventDefault();
 			var d = $(this).serialize();
-			alert(d);
+			//alert(d);
+			$.ajax({
+				url : "insertMovie.do",
+				data : d,
+				type:"get",
+				dataType:"json",
+				success:function(r){
+					//데이터 등록이 완료되면 결과값으로 현재 저장된 모든 영화 정보를 읽어와서
+					//container에 출력
+				},
+				error:function(xhr,text,error){
+					//경고창으로 에러 메세지를 출력
+				}
+			});
 		});
 	});
 </script>
