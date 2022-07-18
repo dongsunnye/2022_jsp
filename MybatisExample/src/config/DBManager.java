@@ -29,7 +29,8 @@ public class DBManager {
 	}
 	
 	public SqlSession getSession() {
-		return sqlSessionFactory.openSession();
+		return sqlSessionFactory.openSession(true); // auto commit (o);
+//		return sqlSessionFactory.openSession(); // auto commit (x);
 	}
 	
 

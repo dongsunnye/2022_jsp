@@ -20,7 +20,7 @@
 	</select>
 	
 	<insert id="insertEmployee" parameterType="dto.EmployeeDTO">
-		insert into employee values(#{eno},#{name},#{department},#{postionNo})
+		insert into employee values(#{eno},#{name},#{department},#{positionNo})
 	</insert>
 </mapper>
 
