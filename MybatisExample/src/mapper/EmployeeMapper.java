@@ -3,6 +3,7 @@ package mapper;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -42,7 +43,10 @@ public class EmployeeMapper {
 	public List<EmployeeDTO> selectPosition(HashMap<String, Integer> map) {
 		return session.selectList("selectPosition", map);
 	}
-
+	
+	public List<Map<String, Object>> selectPositionCount(){
+		return session.selectList("selectPositionCount");
+	}
 }
 
 
