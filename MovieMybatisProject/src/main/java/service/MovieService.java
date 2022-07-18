@@ -1,5 +1,8 @@
 package service;
 
+import dto.MovieDTO;
+import mapper.MovieMapper;
+
 public class MovieService {
 	private static MovieService instance = new MovieService();
 
@@ -11,7 +14,14 @@ public class MovieService {
 			instance = new MovieService();
 		return instance;
 	}
-	
+
+	public int insertMovie(MovieDTO dto) {
+		return MovieMapper.getInstance().insertMovie(dto);
+	}
 	
 	
 }
+
+
+
+
