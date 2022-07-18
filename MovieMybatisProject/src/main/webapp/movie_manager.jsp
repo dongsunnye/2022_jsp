@@ -5,6 +5,17 @@
 <head>
 <meta charset="UTF-8">
 <title>영화 목록 관리 페이지</title>
+<style type="text/css">
+	.container{
+		width: 1200px;
+		margin:0 auto;
+	}
+	.container > table {
+		width: 100%;
+		table-layout: fixed;
+	}
+	
+</style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript">
 	$(function() {
@@ -20,6 +31,18 @@
 				success:function(r){
 					//데이터 등록이 완료되면 결과값으로 현재 저장된 모든 영화 정보를 읽어와서
 					//container에 출력
+					var tag = "<table>";
+					for(i=0;i<r.length;i++){
+						tag += "<tr>";
+						tag += "<td>" + r[i].bno + "</td>";
+						tag += "<td>" + r[i].title + "</td>";
+						tag += "<td>" + r[i].openDate + "</td>";
+						tag += "<td>" + r[i].audienceCount + "</td>";
+						tag += "<td>" + r[i].director + "</td>";
+						tag += "</tr>";
+					}
+					tag +="</table>"
+					$(".container").html(tag);
 				},
 				error:function(xhr,text,error){
 					//경고창으로 에러 메세지를 출력

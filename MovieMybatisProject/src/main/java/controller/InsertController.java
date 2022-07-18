@@ -16,6 +16,7 @@ public class InsertController implements Controller {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		try {
 		String title = request.getParameter("title");
 		String openDate = request.getParameter("open_date");
 		int audienceCount = Integer.parseInt(request.getParameter("audience_count"));
@@ -23,6 +24,7 @@ public class InsertController implements Controller {
 		
 		int result = MovieService.getInstance().insertMovie(
 				new MovieDTO(0, title, openDate, audienceCount, director));
+		if(result == 0) throw new Exception("데이터 등록에 실패 하였습니다.");
 		//System.out.println(result);
 		//데이터 등록이 성공하면 전체 영화데이터를 json으로 전송
 		List<MovieDTO> list = MovieService.getInstance().selectAllMovie();
@@ -30,6 +32,13 @@ public class InsertController implements Controller {
 		JSONArray arr = new JSONArray(list);
 		response.getWriter().write(arr.toString());
 		//데이터 등록이 실패하면 데이터 등록에 실패 하였습니다. 에러 메세지 처리
+		}catch (NumberFormatException e) {
+			response.setStatus(1001);
+			response.getWriter().write("누적 관객수는 숫자로 입력하세요");
+		} catch (Exception e) {
+			response.setStatus(1002);
+			response.getWriter().write(e.getMessage());
+		}
 	}
 
 }
