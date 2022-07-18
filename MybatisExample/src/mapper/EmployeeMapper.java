@@ -32,6 +32,10 @@ public class EmployeeMapper {
 	public int insertEmployee(EmployeeDTO dto) {
 		return session.insert("insertEmployee", dto);
 	}
+	
+	public int updateEmployeePosition() {
+		return session.update("updatePosition");
+	}
 
 }
 

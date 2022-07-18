@@ -17,10 +17,13 @@ public class EmployeeMain {
 		 * EmployeeMapper.getInstance().selectDeptEmployee("회계"); for (EmployeeDTO dto :
 		 * list) System.out.println(dto);
 		 */
+		/*
+		 * EmployeeDTO dto = new EmployeeDTO("AA00", "홍길동", "법무", 3); int result =
+		 * EmployeeMapper.getInstance().insertEmployee(dto); System.out.println(result);
+		 */
+		int count = EmployeeMapper.getInstance().updateEmployeePosition();
+		System.out.println(count);
 		
-		EmployeeDTO dto = new EmployeeDTO("AA00", "홍길동", "법무", 3);
-		int result = EmployeeMapper.getInstance().insertEmployee(dto);
-		System.out.println(result);
 	}
 
 }

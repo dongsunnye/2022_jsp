@@ -22,7 +22,16 @@
 	<insert id="insertEmployee" parameterType="dto.EmployeeDTO">
 		insert into employee values(#{eno},#{name},#{department},#{positionNo})
 	</insert>
+	
+	<update id="updatePosition">
+		update employee set position_no = 2 where position_no = 1
+	</update>
 </mapper>
+
+
+
+
+
 
 
 
