@@ -36,6 +36,19 @@
 		(select count(*) from employee e where e.position_no =p.position_no) as ecount
 		from position_list p
 	</select>
+	
+	<select id="selectSearchEmployee" parameterMap="Map" resultMap="employee">
+		select * from employee where 
+		<if test="kind.equals('eno')">
+			eno = #{search}		
+		</if>
+		<if test="kind.equals('name')">
+			name like '%' || #{search} || '%'		
+		</if>
+		<if test="kind.equals('department')">
+			department = #{search}
+		</if>
+	</select>
 </mapper>
 
 
