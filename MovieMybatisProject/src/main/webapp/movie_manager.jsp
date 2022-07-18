@@ -46,6 +46,8 @@
 				},
 				error:function(xhr,text,error){
 					//경고창으로 에러 메세지를 출력
+					console.log(xhr.status, xhr.responseText);
+					alert(xhr.responseText);
 				}
 			});
 		});

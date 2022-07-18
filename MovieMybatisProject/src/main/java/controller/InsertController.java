@@ -24,7 +24,7 @@ public class InsertController implements Controller {
 		
 		int result = MovieService.getInstance().insertMovie(
 				new MovieDTO(0, title, openDate, audienceCount, director));
-		if(result == 0) throw new Exception("데이터 등록에 실패 하였습니다.");
+		if(result == 0) throw new Exception();
 		//System.out.println(result);
 		//데이터 등록이 성공하면 전체 영화데이터를 json으로 전송
 		List<MovieDTO> list = MovieService.getInstance().selectAllMovie();
@@ -37,7 +37,7 @@ public class InsertController implements Controller {
 			response.getWriter().write("누적 관객수는 숫자로 입력하세요");
 		} catch (Exception e) {
 			response.setStatus(1002);
-			response.getWriter().write(e.getMessage());
+			response.getWriter().write("데이터 등록에 실패 하였습니다.");
 		}
 	}
 
