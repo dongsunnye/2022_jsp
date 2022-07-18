@@ -18,6 +18,10 @@
 	<select id="selectDeptEmployee" parameterType="String" resultMap="employee">
 		select * from employee where department = #{search}
 	</select>
+	
+	<insert id="insertEmployee" parameterType="dto.EmployeeDTO">
+		insert into employee values(#{eno},#{name},#{department},#{postionNo})
+	</insert>
 </mapper>
 
 

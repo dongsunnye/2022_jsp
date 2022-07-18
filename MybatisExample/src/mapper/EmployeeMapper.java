@@ -28,6 +28,10 @@ public class EmployeeMapper {
 	public List<EmployeeDTO> selectDeptEmployee(String dept){
 		return session.selectList("selectDeptEmployee", dept);
 	}
+	
+	public int insertEmployee(EmployeeDTO dto) {
+		return session.insert("insertEmployee", dto);
+	}
 
 }
 

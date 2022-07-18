@@ -12,9 +12,19 @@ public class EmployeeMain {
 		 * 
 		 * for(EmployeeDTO dto : list) System.out.println(dto);
 		 */
-		List<EmployeeDTO> list = EmployeeMapper.getInstance().selectDeptEmployee("회계");
-		for (EmployeeDTO dto : list)
-			System.out.println(dto);
+		/*
+		 * List<EmployeeDTO> list =
+		 * EmployeeMapper.getInstance().selectDeptEmployee("회계"); for (EmployeeDTO dto :
+		 * list) System.out.println(dto);
+		 */
+		
+		EmployeeDTO dto = new EmployeeDTO("AA00", "홍길동", "법무", 3);
+		int result = EmployeeMapper.getInstance().insertEmployee(dto);
+		System.out.println(result);
 	}
 
 }
+
+
+
+
