@@ -16,6 +16,7 @@ public class MovieService {
 	}
 
 	public int insertMovie(MovieDTO dto) {
+		//System.out.println(dto);
 		return MovieMapper.getInstance().insertMovie(dto);
 	}
 	

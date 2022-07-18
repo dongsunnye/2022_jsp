@@ -39,7 +39,7 @@
 	 	<input type="text" name="title" placeholder="영화 제목">
 	 	<input type="date" name="open_date" placeholder="개봉일">
 	 	<input type="text" name="audience_count" placeholder="누적 관객 수">
-	 	<input type="text" name="diector" placeholder="감독">
+	 	<input type="text" name="director" placeholder="감독">
 	 	<button>등록</button>
 	 </form>
 	 <hr>

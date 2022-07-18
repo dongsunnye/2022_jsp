@@ -5,6 +5,6 @@
 <mapper namespace="mapper.MovieMapper">
   	<insert id="insertMovie" parameterType="dto.MovieDTO">
   		insert into movie
-  		values(movie_no.nextval, #{title}, #{openDate},#{audience_count},#{director})
+  		values(movie_no.nextval, #{title}, #{openDate},#{audienceCount},#{director})
   	</insert>
 </mapper>
