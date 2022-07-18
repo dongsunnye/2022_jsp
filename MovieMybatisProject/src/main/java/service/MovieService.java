@@ -1,5 +1,7 @@
 package service;
 
+import java.util.List;
+
 import dto.MovieDTO;
 import mapper.MovieMapper;
 
@@ -18,6 +20,10 @@ public class MovieService {
 	public int insertMovie(MovieDTO dto) {
 		//System.out.println(dto);
 		return MovieMapper.getInstance().insertMovie(dto);
+	}
+
+	public List<MovieDTO> selectAllMovie() {
+		return MovieMapper.getInstance().selectAllMovie();
 	}
 	
 	

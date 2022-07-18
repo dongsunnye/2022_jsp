@@ -1,5 +1,7 @@
 package mapper;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 
 import config.DBManager;
@@ -22,6 +24,10 @@ public class MovieMapper {
 
 	public int insertMovie(MovieDTO dto) {
 		return session.insert("insertMovie", dto);
+	}
+
+	public List<MovieDTO> selectAllMovie() {
+		return session.selectList("selectAllMovie");
 	}
 
 	
