@@ -37,7 +37,7 @@
 		from position_list p
 	</select>
 	
-	<select id="selectSearchEmployee" parameterMap="Map" resultMap="employee">
+	<select id="selectSearchEmployee" parameterType="Map" resultMap="employee">
 		select * from employee where 
 		<if test="kind.equals('eno')">
 			eno = #{search}		

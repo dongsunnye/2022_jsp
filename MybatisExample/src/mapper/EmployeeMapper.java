@@ -47,6 +47,10 @@ public class EmployeeMapper {
 	public List<Map<String, Object>> selectPositionCount(){
 		return session.selectList("selectPositionCount");
 	}
+
+	public List<EmployeeDTO> selectSearchEmployee(Map<String, Object> map) {
+		return session.selectList("selectSearchEmployee",map);
+	}
 }
 
 
