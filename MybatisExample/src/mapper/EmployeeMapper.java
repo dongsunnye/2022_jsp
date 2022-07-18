@@ -1,5 +1,7 @@
 package mapper;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -35,6 +37,10 @@ public class EmployeeMapper {
 	
 	public int updateEmployeePosition() {
 		return session.update("updatePosition");
+	}
+
+	public List<EmployeeDTO> selectPosition(HashMap<String, Integer> map) {
+		return session.selectList("selectPosition", map);
 	}
 
 }

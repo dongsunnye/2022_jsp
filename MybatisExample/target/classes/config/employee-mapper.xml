@@ -26,6 +26,10 @@
 	<update id="updatePosition">
 		update employee set position_no = 2 where position_no = 1
 	</update>
+	<!-- 사원들의 직급이 시작값 ~ 마지막값을 보내서 조회  -->
+	<select id="selectPosition" parameterType="Map" resultMap="employee">
+		select * from employee where position_no between #{start} and #{end}
+	</select>
 </mapper>
 
 
