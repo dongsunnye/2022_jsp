@@ -39,7 +39,7 @@
 	
 	<select id="selectSearchEmployee" parameterType="Map" resultMap="employee">
 		select * from employee where 
-		<if test="kind.equals('eno')">
+		<!-- <if test="kind.equals('eno')">
 			eno = #{search}		
 		</if>
 		<if test="kind.equals('name')">
@@ -47,7 +47,18 @@
 		</if>
 		<if test="kind.equals('department')">
 			department = #{search}
-		</if>
+		</if> -->
+		<choose>
+			<when test="kind.equals('eno')">
+				eno = #{search}	
+			</when>
+			<when test="kind.equals('name')">
+				name like '%' || #{search} || '%'		
+			</when>
+			<otherwise>
+				department = #{search}
+			</otherwise>
+		</choose>
 	</select>
 </mapper>
 
