@@ -28,7 +28,7 @@ public class UpdateController implements Controller {
 		System.out.println(result + "건 수정이 완료됨");
 		if (type.equals("my")) {
 			HttpSession session = request.getSession();
-			dto.setPass(null);
+			dto.setPasswd(passwd);
 			session.setAttribute("dto", dto);
 			view = new ModelAndView("main.jsp", true);
 		} else {

@@ -3,6 +3,7 @@ package controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -37,7 +38,7 @@ public class LoginController implements Controller {
 			//세션에 dto를 저장
 			session.setAttribute("dto", dto);
 			//나이가 가장많은 인원 3명을 저장
-			ArrayList<MemberDTO> list = MemberService.getInstance().selectTopAge3();
+			List<MemberDTO> list = MemberService.getInstance().selectTopAge3();
 			session.setAttribute("list", list);
 			
 			view = new ModelAndView("main.jsp", true); 
