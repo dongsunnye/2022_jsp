@@ -17,4 +17,14 @@
 	<insert id="insertMemberDTO" parameterType="member">
 		insert into member values(#{id},#{passwd},#{name},#{age},#{gender},#{address})	
 	</insert>
+	<update id="updateMemberDTO" parameterType="member">
+		update member set passwd = #{passwd}, name = #{name},
+		age = #{age},gender = #{gender}, address = #{address}
+		where id = #{id}	
+	</update>
 </mapper>
+
+
+
+
+

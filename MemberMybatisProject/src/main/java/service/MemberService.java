@@ -51,7 +51,7 @@ public class MemberService {
 	}
 
 	public MemberDTO selectMemberDTO(String id) throws MemberException {
-		MemberDTO dto = MemberDAO.getInstance().selectMemberDTO(id);
+		MemberDTO dto = MemberMapper.getInstance().selectMemberDTO(id);
 		
 		if(dto == null)
 			throw new MemberException("수정할 회원정보가 없습니다.");
@@ -60,7 +60,7 @@ public class MemberService {
 	}
 
 	public int updateMemberDTO(MemberDTO dto) {
-		return MemberDAO.getInstance().updateMemberDTO(dto);
+		return MemberMapper.getInstance().updateMemberDTO(dto);
 	}
 	
 	

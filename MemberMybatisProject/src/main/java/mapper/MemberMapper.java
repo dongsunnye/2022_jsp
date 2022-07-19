@@ -36,6 +36,10 @@ public class MemberMapper {
 	public int insertMemberDTO(MemberDTO dto) {
 		return session.insert("insertMemberDTO", dto);		
 	}
+
+	public int updateMemberDTO(MemberDTO dto) {
+		return session.update("updateMemberDTO", dto);
+	}
 	
 }
 
