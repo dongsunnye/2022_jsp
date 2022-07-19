@@ -11,4 +11,10 @@
 		select m.* from (select * from member ORDER BY age desc) m where rownum <= 3
 	]]>
 	</select>
+	<select id="selectMemberDTO" parameterType="String" resultType="member">
+		select * from member where id like #{id}
+	</select>
+	<insert id="insertMemberDTO" parameterType="member">
+		insert into member values(#{id},#{passwd},#{name},#{age},#{gender},#{address})	
+	</insert>
 </mapper>

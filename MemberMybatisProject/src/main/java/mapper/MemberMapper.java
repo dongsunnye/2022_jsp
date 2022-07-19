@@ -29,6 +29,16 @@ public class MemberMapper {
 		return session.selectList("selectTopAge3");
 	}
 
-	
+	public MemberDTO selectMemberDTO(String id) {
+		return session.selectOne("selectMemberDTO", id);
+	}
+
+	public int insertMemberDTO(MemberDTO dto) {
+		return session.insert("insertMemberDTO", dto);		
+	}
 	
 }
+
+
+
+

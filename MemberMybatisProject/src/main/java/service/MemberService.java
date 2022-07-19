@@ -32,9 +32,9 @@ public class MemberService {
 	}
 
 	public void insertMemberDTO(MemberDTO dto) throws MemberException {
-		if(MemberDAO.getInstance().selectMemberDTO(dto.getId()) != null)
+		if(MemberMapper.getInstance().selectMemberDTO(dto.getId()) != null)
 			throw new MemberException("아이디가 중복되었습니다.");
-		MemberDAO.getInstance().insertMemberDTO(dto);
+		MemberMapper.getInstance().insertMemberDTO(dto);
 		
 		
 	}
