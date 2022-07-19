@@ -39,9 +39,9 @@ public class MemberService {
 		
 	}
 
-	public ArrayList<MemberDTO> selectMemberList(String kind, String search) {
+	public List<MemberDTO> selectMemberList(String kind, String search) {
 		if(kind == null)
-			return MemberDAO.getInstance().selectMemberList();
+			return MemberMapper.getInstance().selectMemberList();
 		else
 			return MemberDAO.getInstance().selectMemberList(kind,search);
 	}

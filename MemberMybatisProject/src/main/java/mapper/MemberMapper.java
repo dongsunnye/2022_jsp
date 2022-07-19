@@ -1,5 +1,6 @@
 package mapper;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -44,6 +45,10 @@ public class MemberMapper {
 	public int deleteMemberDTO(String id) {
 		return session.delete("deleteMemberDTO",id);
 		
+	}
+
+	public List<MemberDTO> selectMemberList() {
+		return session.selectList("selectMemberList");
 	}
 	
 }

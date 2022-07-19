@@ -25,6 +25,9 @@
 	<delete id="deleteMemberDTO" parameterType="String">
 		delete from member where id = #{id}
 	</delete>
+	<select id="selectMemberList" resultType="member">
+		select * from member
+	</select>
 </mapper>
 
 
