@@ -25,8 +25,24 @@
 	<delete id="deleteMemberDTO" parameterType="String">
 		delete from member where id = #{id}
 	</delete>
-	<select id="selectMemberList" resultType="member">
+	<select id="selectMemberList" parameterType="map" resultType="member">
 		select * from member
+		<choose>
+			<when test="kind == null"></when>
+			<when test="kind.equals('gender')">
+				where gender = #{search}
+			</when>
+			<when test="kind.equals('id')">
+				where id like '%' || #{search} || '%'
+			</when>
+			<when test="kind.equals('name')">
+				where name like '%' || #{search} || '%'
+			</when>
+			<when test="kind.equals('address')">
+				where address like '%' || #{search} || '%'
+			</when>
+			<otherwise></otherwise>
+		</choose>
 	</select>
 </mapper>
 

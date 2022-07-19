@@ -47,8 +47,11 @@ public class MemberMapper {
 		
 	}
 
-	public List<MemberDTO> selectMemberList() {
-		return session.selectList("selectMemberList");
+	public List<MemberDTO> selectMemberList(String kind, String search) {
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("kind", kind);
+		map.put("search", search);
+		return session.selectList("selectMemberList",map);
 	}
 	
 }

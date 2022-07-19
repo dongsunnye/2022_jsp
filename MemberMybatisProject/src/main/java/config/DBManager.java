@@ -40,18 +40,7 @@ public class DBManager {
 		return factory.openSession(true);
 	}
 
-	public Connection getConn() {
-		return conn;
-	}
-
-	public void close(ResultSet rs, PreparedStatement pstmt) {
-		try {
-			if(rs != null) rs.close();
-			if(pstmt != null) pstmt.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
+	
 
 	
 }
