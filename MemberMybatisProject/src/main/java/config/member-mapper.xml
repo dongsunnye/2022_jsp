@@ -22,7 +22,14 @@
 		age = #{age},gender = #{gender}, address = #{address}
 		where id = #{id}	
 	</update>
+	<delete id="deleteMemberDTO" parameterType="String">
+		delete from member where id = #{id}
+	</delete>
 </mapper>
+
+
+
+
 
 
 

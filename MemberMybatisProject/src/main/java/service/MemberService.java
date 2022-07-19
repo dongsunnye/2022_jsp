@@ -47,7 +47,7 @@ public class MemberService {
 	}
 
 	public void deleteMemberDTO(String id) {
-		MemberDAO.getInstance().deleteMemberDTO(id);
+		MemberMapper.getInstance().deleteMemberDTO(id);
 	}
 
 	public MemberDTO selectMemberDTO(String id) throws MemberException {

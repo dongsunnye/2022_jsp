@@ -40,6 +40,11 @@ public class MemberMapper {
 	public int updateMemberDTO(MemberDTO dto) {
 		return session.update("updateMemberDTO", dto);
 	}
+
+	public int deleteMemberDTO(String id) {
+		return session.delete("deleteMemberDTO",id);
+		
+	}
 	
 }
 
