@@ -78,7 +78,7 @@ public class MemberDAO {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, dto.getId());
-			pstmt.setString(2, dto.getPass());
+			pstmt.setString(2, dto.getPasswd());
 			pstmt.setString(3, dto.getName());
 			pstmt.setInt(4, dto.getAge());
 			pstmt.setString(5, dto.getGender());
@@ -102,7 +102,7 @@ public class MemberDAO {
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(6, dto.getId());
-			pstmt.setString(1, dto.getPass());
+			pstmt.setString(1, dto.getPasswd());
 			pstmt.setString(2, dto.getName());
 			pstmt.setInt(3, dto.getAge());
 			pstmt.setString(4, dto.getGender());

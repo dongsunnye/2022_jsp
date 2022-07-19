@@ -2,15 +2,15 @@ package dto;
 
 public class MemberDTO {
 	private String id;
-	private String pass;
+	private String passwd;
 	private String name;
 	private int age;
 	private String gender;
 	private String address;
-	public MemberDTO(String id, String pass, String name, int age, String gender, String address) {
+	public MemberDTO(String id, String passwd, String name, int age, String gender, String address) {
 		super();
 		this.id = id;
-		this.pass = pass;
+		this.passwd = passwd;
 		this.name = name;
 		this.age = age;
 		this.gender = gender;
@@ -22,11 +22,11 @@ public class MemberDTO {
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getPass() {
-		return pass;
+	public String getPasswd() {
+		return passwd;
 	}
-	public void setPass(String pass) {
-		this.pass = pass;
+	public void setPasswd(String passwd) {
+		this.passwd = passwd;
 	}
 	public String getName() {
 		return name;
@@ -54,7 +54,7 @@ public class MemberDTO {
 	}
 	@Override
 	public String toString() {
-		return "MemberDTO [id=" + id + ", pass=" + pass + ", name=" + name + ", age=" + age + ", gender=" + gender
+		return "MemberDTO [id=" + id + ", pass=" + passwd + ", name=" + name + ", age=" + age + ", gender=" + gender
 				+ ", address=" + address + "]";
 	}
 	

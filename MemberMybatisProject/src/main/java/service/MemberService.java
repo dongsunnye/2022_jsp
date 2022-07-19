@@ -1,10 +1,12 @@
 package service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import dao.MemberDAO;
 import dto.MemberDTO;
 import exception.MemberException;
+import mapper.MemberMapper;
 
 public class MemberService {
 	private static MemberService instance = new MemberService();
@@ -18,7 +20,10 @@ public class MemberService {
 	}
 
 	public MemberDTO login(String id, String passwd) {
-		return MemberDAO.getInstance().login(id, passwd);
+		HashMap<String, String> map = new HashMap<String, String>();
+		map.put("id", id);
+		map.put("passwd", passwd);
+		return MemberMapper.getInstance().login(map);
 	}
 
 	public ArrayList<MemberDTO> selectTopAge3() {
