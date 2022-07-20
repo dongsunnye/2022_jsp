@@ -1,9 +1,14 @@
 package test;
 
+import static org.junit.Assume.assumeFalse;
 import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assumptions.assumeFalse;
+import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.json.JSONArray;
@@ -68,7 +73,11 @@ class MovieTest {
 	//데이터 영화 제목 검색 테스트 - selectMovieList
 	@Test
 	void testSelectMovieList() {
+		List<MovieDTO> list = session.selectList("selectMovieList", "닥터"); 
+		assumeFalse(list.size() == 0,"영화 정보 검색 기능 테스트 실패");
 		
+		if(list.size() == 0)
+			fail("영화 정보 검색 기능 테스트 실패");
 	}
 
 }
