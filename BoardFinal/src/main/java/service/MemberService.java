@@ -1,16 +1,12 @@
 package service;
 
-import java.sql.Connection;
-
-import config.DBManager;
-import dao.MemberDAO;
 import dto.MemberDTO;
+import mapper.MemberMapper;
 
 public class MemberService {
 	private static MemberService instance = new MemberService();
-	private Connection conn;
 	private MemberService() {
-		conn = DBManager.getInstance().getConn();
+	
 	}
 	public static MemberService getInstance() {
 		if(instance == null)
@@ -19,7 +15,12 @@ public class MemberService {
 	}
 	
 	public MemberDTO login(String id, String passwd) {
-		return MemberDAO.getInstance().login(id, passwd);
+		return MemberMapper.getInstance().login(id, passwd);
 	}
 	
 }
+
+
+
+
+
