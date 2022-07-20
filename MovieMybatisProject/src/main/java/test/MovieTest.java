@@ -52,12 +52,31 @@ class MovieTest {
 		System.out.println("테스트 데이터 제거");
 	}
 
+	//데이터 추가 테스트 - insertMovie
 	@Test
-	void test() {
+	void testInsertMovie() {
+		MovieDTO dto = new MovieDTO(11, "테스트 제목", "23/09/11", 12415, "감독");
+		int result = 0;
+		try {
+			result = session.insert("insertMovie", dto);
+		}catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		assertEquals(result, 1,"영화 정보 추가 기능 테스트 실패");
+	}
+	
+	//데이터 검색 테이스 - selectMovieList
+	@Test
+	void testSelectMovieList() {
 		
 	}
 
 }
+
+
+
+
+
 
 
 
