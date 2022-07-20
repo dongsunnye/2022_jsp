@@ -14,6 +14,10 @@
   		insert into movie
   		values(movie_no.nextval, #{title}, #{openDate},#{audienceCount},#{director})
   	</insert>
+  	<insert id="insertTestMovie" parameterType="dto.MovieDTO">
+  		insert into movie
+  		values(#{bno}, #{title}, #{openDate},#{audienceCount},#{director})
+  	</insert>
   	
   	<select id="selectAllMovie" resultMap="movie">
   		select * from movie	
