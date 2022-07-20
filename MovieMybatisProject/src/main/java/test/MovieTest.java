@@ -65,7 +65,7 @@ class MovieTest {
 		assertEquals(result, 1,"영화 정보 추가 기능 테스트 실패");
 	}
 	
-	//데이터 검색 테이스 - selectMovieList
+	//데이터 영화 제목 검색 테스트 - selectMovieList
 	@Test
 	void testSelectMovieList() {
 		
