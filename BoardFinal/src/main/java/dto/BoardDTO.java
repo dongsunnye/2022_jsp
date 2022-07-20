@@ -7,8 +7,8 @@ public class BoardDTO {
 	private String nick;
 	private int bcount;
 	private String bdate;
-	private int like;
-	private int hate;
+	private int blike;
+	private int bhate;
 	private String content;
 	
 	public BoardDTO() {	}
@@ -21,8 +21,8 @@ public class BoardDTO {
 		this.nick = nick;
 		this.bcount = bcount;
 		this.bdate = bdate;
-		this.like = like;
-		this.hate = hate;
+		this.blike = like;
+		this.bhate = hate;
 	}
 	public BoardDTO(int bno, String title, String writer, String nick, int bcount, String bdate, int like, int hate,
 			String content) {
@@ -33,8 +33,8 @@ public class BoardDTO {
 		this.nick = nick;
 		this.bcount = bcount;
 		this.bdate = bdate;
-		this.like = like;
-		this.hate = hate;
+		this.blike = like;
+		this.bhate = hate;
 		this.content = content;
 	}
 
@@ -102,20 +102,20 @@ public class BoardDTO {
 		this.content = content;
 	}
 
-	public int getLike() {
-		return like;
+	public int getBlike() {
+		return blike;
 	}
 
-	public void setLike(int like) {
-		this.like = like;
+	public void setBlike(int blike) {
+		this.blike = blike;
 	}
 
-	public int getHate() {
-		return hate;
+	public int getBhate() {
+		return bhate;
 	}
 
-	public void setHate(int hate) {
-		this.hate = hate;
+	public void setBhate(int bhate) {
+		this.bhate = bhate;
 	}
 	
 	

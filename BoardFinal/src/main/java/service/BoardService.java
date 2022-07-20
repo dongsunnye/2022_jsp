@@ -2,11 +2,13 @@ package service;
 
 import java.sql.Connection;
 import java.util.ArrayList;
+import java.util.List;
 
 import config.DBManager;
 import dao.BoardDAO;
 import dto.BoardCommentDTO;
 import dto.BoardDTO;
+import mapper.BoardMapper;
 
 public class BoardService {
 	private static BoardService instance = new BoardService();
@@ -19,8 +21,8 @@ public class BoardService {
 			instance = new BoardService();
 		return instance;
 	}
-	public ArrayList<BoardDTO> selectBoardList(int pageNo) {
-		return BoardDAO.getInstance().selectBoardList(pageNo);
+	public List<BoardDTO> selectBoardList(int pageNo) {
+		return BoardMapper.getInstance().selectBoardList(pageNo);
 	}
 	public int selectAllCount() {
 		return BoardDAO.getInstance().selectAllCount();

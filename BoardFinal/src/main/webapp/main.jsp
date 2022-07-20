@@ -73,8 +73,8 @@
 						<td>${board.nick }</td>
 						<td>${board.bdate }</td>
 						<td>${board.bcount }</td>
-						<td>${board.like }</td>
-						<td>${board.hate }</td>
+						<td>${board.blike }</td>
+						<td>${board.bhate }</td>
 					</tr>
 				</c:forEach>
 				</tbody>

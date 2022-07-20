@@ -1,7 +1,7 @@
 package controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -22,7 +22,7 @@ public class MainController implements Controller {
 		if(request.getParameter("pageNo") != null)
 			pageNo = Integer.parseInt(request.getParameter("pageNo"));
 		
-		ArrayList<BoardDTO> list = BoardService.getInstance().selectBoardList(pageNo);
+		List<BoardDTO> list = BoardService.getInstance().selectBoardList(pageNo);
 		request.setAttribute("board_list", list);
 		
 		int count = BoardService.getInstance().selectAllCount();
