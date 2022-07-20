@@ -26,6 +26,13 @@ public class BoardMapper {
 		session.close();
 		return list;
 	}
+
+	public BoardDTO selectBoard(int bno) {
+		SqlSession session = DBManager.getInstance().getSession();
+		BoardDTO dto = session.selectOne("selectBoard", bno);
+		session.close();
+		return dto;
+	}
 	
 }
 

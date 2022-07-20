@@ -106,8 +106,8 @@
 		</tr>
 		<tr>
 			<td colspan="2"> 
-				<a href="#" id="btn_like">좋아요 ${requestScope.board.like}</a>
-				<a href="#" id="btn_hate">싫어요 ${requestScope.board.hate}</a>
+				<a href="#" id="btn_like">좋아요 ${requestScope.board.blike}</a>
+				<a href="#" id="btn_hate">싫어요 ${requestScope.board.bhate}</a>
 			</td>
 		</tr>
 		<c:if test="${requestScope.board.writer == sessionScope.dto.id }">

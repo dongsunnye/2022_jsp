@@ -31,7 +31,7 @@ public class BoardService {
 		BoardDAO.getInstance().insertBoard(dto);
 	}
 	public BoardDTO selectBoard(int bno) {
-		return BoardDAO.getInstance().selectBoard(bno);
+		return BoardMapper.getInstance().selectBoard(bno);
 	}
 	public void deleteBoard(int bno) {
 		BoardDAO.getInstance().deleteBoard(bno);

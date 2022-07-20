@@ -7,6 +7,10 @@
 		select * from (select ceil(rownum / 15) as pageNo, b.* from board_view b) 
 		where pageNo = #{pageNo}
 	</select>
+	
+	<select id="selectBoard" parameterType="int" resultType="board">
+		select * from board_view where bno = #{bno}
+	</select>
 </mapper>
 
 
