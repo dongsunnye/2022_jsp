@@ -15,6 +15,11 @@
 	<select id="selectBoardCount" resultType="int">
 		select count(*) from board_view
 	</select>
+	
+	<insert id="insertBoard" parameterType="board">
+		insert into board(bno, title, writer, content, bcount) 
+		values(board_bno.nextval,#{title},#{writer},#{content},0)
+	</insert>
 </mapper>
 
 

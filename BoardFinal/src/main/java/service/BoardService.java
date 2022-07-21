@@ -28,7 +28,7 @@ public class BoardService {
 		return BoardMapper.getInstance().selectBoardCount();
 	}
 	public void insertBoard(BoardDTO dto) {
-		BoardDAO.getInstance().insertBoard(dto);
+		BoardMapper.getInstance().insertBoard(dto);
 	}
 	public BoardDTO selectBoard(int bno) {
 		return BoardMapper.getInstance().selectBoard(bno);

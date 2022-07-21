@@ -41,6 +41,13 @@ public class BoardMapper {
 		
 		return result;
 	}
+
+	public int insertBoard(BoardDTO dto) {
+		SqlSession session = DBManager.getInstance().getSession();
+		int result = session.insert("insertBoard", dto);
+		session.commit();
+		return result;
+	}
 	
 }
 
