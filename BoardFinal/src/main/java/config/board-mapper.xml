@@ -11,6 +11,10 @@
 	<select id="selectBoard" parameterType="int" resultType="board">
 		select * from board_view where bno = #{bno}
 	</select>
+	
+	<select id="selectBoardCount" resultType="int">
+		select count(*) from board_view
+	</select>
 </mapper>
 
 
