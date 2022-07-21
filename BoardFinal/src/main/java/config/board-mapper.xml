@@ -20,7 +20,18 @@
 		insert into board(bno, title, writer, content, bcount) 
 		values(board_bno.nextval,#{title},#{writer},#{content},0)
 	</insert>
+	
+	<update id="updateBoard" parameterType="board">
+		update board set title=#{title} ,content=#{content} where bno = #{bno}
+	</update>
 </mapper>
+
+
+
+
+
+
+
 
 
 

@@ -48,6 +48,13 @@ public class BoardMapper {
 		session.commit();
 		return result;
 	}
+
+	public int updateBoard(BoardDTO dto) {
+		SqlSession session = DBManager.getInstance().getSession();
+		int result = session.update("updateBoard", dto);
+		session.commit();
+		return result;
+	}
 	
 }
 

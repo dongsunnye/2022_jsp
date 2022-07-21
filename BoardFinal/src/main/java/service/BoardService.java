@@ -37,7 +37,7 @@ public class BoardService {
 		BoardDAO.getInstance().deleteBoard(bno);
 	}
 	public void updateBoard(BoardDTO dto) {
-		BoardDAO.getInstance().updateBoard(dto);
+		BoardMapper.getInstance().updateBoard(dto);
 	}
 	public void addBoardCount(int bno) {
 		BoardDAO.getInstance().addCountBoard(bno);
