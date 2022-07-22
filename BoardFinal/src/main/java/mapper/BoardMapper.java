@@ -7,6 +7,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 
 import config.DBManager;
+import dto.BoardCommentDTO;
 import dto.BoardDTO;
 
 public class BoardMapper {
@@ -114,6 +115,18 @@ public class BoardMapper {
 		}
 		return result;
 		
+	}
+
+	public int insertBoardComment(BoardCommentDTO dto) {
+		SqlSession session = DBManager.getInstance().getSession();
+		int result = 0;
+		try {
+			result = session.insert("insertBoardComment", dto);
+			session.commit();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return result;		
 	}
 	
 }

@@ -40,6 +40,10 @@
 	<update id="addCountBoard" parameterType="int">
 		update board set bcount = bcount + 1 where bno = #{bno}
 	</update>
+	<insert id="insertBoardComment" parameterType="dto.BoardCommentDTO">
+		insert into board_comment(cno,contetnt,bno,writer) 
+		values(board_comment_cno.nextval,#{comment},#{bno},#{writer})
+	</insert>
 </mapper>
 
 

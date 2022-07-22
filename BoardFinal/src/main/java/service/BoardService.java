@@ -62,7 +62,7 @@ public class BoardService {
 		return result;
 	}
 	public void insertBoardComment(BoardCommentDTO boardCommentDTO) {
-		BoardDAO.getInstance().insertBoardComment(boardCommentDTO);
+		BoardMapper.getInstance().insertBoardComment(boardCommentDTO);
 	}
 	public ArrayList<BoardCommentDTO> selectCommentList(int bno) {
 		return BoardDAO.getInstance().selectBoardCommentList(bno);
