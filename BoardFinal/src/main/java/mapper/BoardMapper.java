@@ -1,6 +1,5 @@
 package mapper;
 
-import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 
@@ -85,7 +84,7 @@ public class BoardMapper {
 		SqlSession session = DBManager.getInstance().getSession();
 		int result = 0;
 		try {
-			session.insert("insertBoardHate", map);
+			result = session.insert("insertBoardHate", map);
 			session.commit();
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
@@ -187,6 +186,19 @@ public class BoardMapper {
 			System.out.println(e.getMessage());
 		}
 		return result;		
+	}
+
+	public int deleteBoardComment(int cno) {
+		SqlSession session = DBManager.getInstance().getSession();
+		int result = 0;
+		try {
+			result = session.delete("deleteBoardComment", cno);
+			session.commit();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return result;		
+		
 	}
 	
 }

@@ -16,17 +16,9 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 public class DBManager {
 	private static DBManager instance = new DBManager();
 	
-	private Connection conn;
 	private SqlSessionFactory factory;
 	private DBManager() {
-		try {
-			Class.forName(DBConfig.DB_DRIVER);
-			conn = DriverManager.getConnection(DBConfig.DB_URL,DBConfig.DB_USER,DBConfig.DB_PASS);
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+	
 		String resource = "config/mybatis-config.xml";
 		try {
 			InputStream inputStream = Resources.getResourceAsStream(resource);
@@ -44,9 +36,6 @@ public class DBManager {
 		return instance;
 	}
 
-	public Connection getConn() {
-		return conn;
-	}
 
 	public void close(ResultSet rs, PreparedStatement pstmt) {
 		try {

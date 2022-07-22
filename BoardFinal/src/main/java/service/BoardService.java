@@ -13,9 +13,7 @@ import mapper.BoardMapper;
 
 public class BoardService {
 	private static BoardService instance = new BoardService();
-	private Connection conn;
 	private BoardService() {
-		conn = DBManager.getInstance().getConn();
 	}
 	public static BoardService getInstance() {
 		if(instance == null)
@@ -69,7 +67,7 @@ public class BoardService {
 		return BoardDAO.getInstance().selectBoardCommentList(bno);
 	}
 	public void deleteBoardComment(int cno) {
-		BoardDAO.getInstance().deleteBoardComment(cno);		
+		BoardMapper.getInstance().deleteBoardComment(cno);		
 	}
 	public int insertBoardCommentLike(int cno, String id) {
 		int result =BoardMapper.getInstance().insertBoardCommentLike(cno,id);
