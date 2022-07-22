@@ -5,9 +5,9 @@ public class BoardCommentDTO {
 	private int bno;
 	private String comment;
 	private String writer;
-	private String date;
-	private int like;
-	private int hate;
+	private String cdate;
+	private int clike;
+	private int chate;
 
 	public BoardCommentDTO() {
 	}
@@ -18,9 +18,9 @@ public class BoardCommentDTO {
 		this.bno = bno;
 		this.comment = comment;
 		this.writer = writer;
-		this.date = date;
-		this.like = like;
-		this.hate = hate;
+		this.cdate = date;
+		this.clike = like;
+		this.chate = hate;
 	}
 
 	public BoardCommentDTO(int bno, String comment, String writer) {
@@ -62,35 +62,30 @@ public class BoardCommentDTO {
 		this.writer = writer;
 	}
 
-	public String getDate() {
-		return date;
+	public String getCdate() {
+		return cdate;
 	}
 
-	public void setDate(String date) {
-		this.date = date;
+	public void setCdate(String cdate) {
+		this.cdate = cdate;
 	}
 
-	public int getLike() {
-		return like;
+	public int getClike() {
+		return clike;
 	}
 
-	public void setLike(int like) {
-		this.like = like;
+	public void setClike(int clike) {
+		this.clike = clike;
 	}
 
-	public int getHate() {
-		return hate;
+	public int getChate() {
+		return chate;
 	}
 
-	public void setHate(int hate) {
-		this.hate = hate;
+	public void setChate(int chate) {
+		this.chate = chate;
 	}
 
-	@Override
-	public String toString() {
-		return "BoardCommentDTO [cno=" + cno + ", bno=" + bno + ", comment=" + comment + ", writer=" + writer
-				+ ", date=" + date + ", like=" + like + ", hate=" + hate + "]";
-	}
 	
 	
 }
