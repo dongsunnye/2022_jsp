@@ -44,6 +44,18 @@
 		insert into board_comment(cno,contetnt,bno,writer) 
 		values(board_comment_cno.nextval,#{comment},#{bno},#{writer})
 	</insert>
+	<insert id="insertBoardCommentLike" parameterType="map">
+		insert into board_comment_like values(#{cno},#{id})
+	</insert>
+	<delete id="deleteBoardCommentLike" parameterType="map">
+		delete from board_comment_like where cno = #{cno} and id = #{id}
+	</delete>
+	<insert id="insertBoardCommentHate" parameterType="map">
+		insert into board_comment_hate values(#{cno},#{id})
+	</insert>
+	<delete id="deleteBoardCommentHate" parameterType="map">
+		delete from board_comment_hate where cno = #{cno} and id = #{id}
+	</delete>
 </mapper>
 
 

@@ -128,6 +128,66 @@ public class BoardMapper {
 		}
 		return result;		
 	}
+
+	public int insertBoardCommentLike(int cno, String id) {
+		SqlSession session = DBManager.getInstance().getSession();
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("cno", cno);
+		map.put("id", id);
+		int result = 0;
+		try {
+			result = session.insert("insertBoardCommentLike", map);
+			session.commit();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return result;		
+	}
+
+	public int deleteBoardCommentLike(int cno, String id) {
+		SqlSession session = DBManager.getInstance().getSession();
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("cno", cno);
+		map.put("id", id);
+		int result = 0;
+		try {
+			result = session.delete("deleteBoardCommentLike", map);
+			session.commit();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return result;		
+	}
+
+	public int insertBoardCommentHate(int cno, String id) {
+		SqlSession session = DBManager.getInstance().getSession();
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("cno", cno);
+		map.put("id", id);
+		int result = 0;
+		try {
+			result = session.insert("insertBoardCommentHate", map);
+			session.commit();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return result;		
+	}
+
+	public int deleteBoardCommentHate(int cno, String id) {
+		SqlSession session = DBManager.getInstance().getSession();
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		map.put("cno", cno);
+		map.put("id", id);
+		int result = 0;
+		try {
+			result = session.delete("deleteBoardCommentHate", map);
+			session.commit();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return result;		
+	}
 	
 }
 

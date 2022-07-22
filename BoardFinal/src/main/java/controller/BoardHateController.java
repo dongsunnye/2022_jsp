@@ -18,7 +18,7 @@ public class BoardHateController implements Controller {
 		int bno = Integer.parseInt(request.getParameter("bno"));
 		String id = ((MemberDTO)request.getSession().getAttribute("dto")).getId();
 		int result = BoardService.getInstance().insertBoardHate(bno,id);
-		
+		System.out.println(result);
 		response.getWriter().write(String.valueOf(result));
 		
 		

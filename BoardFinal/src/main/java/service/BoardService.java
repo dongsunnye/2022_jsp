@@ -56,6 +56,7 @@ public class BoardService {
 		HashMap<String, Object> map = new HashMap<String, Object>();
 		map.put("bno", bno);
 		map.put("id", id);
+		System.out.println(map);
 		int result = BoardMapper.getInstance().insertBoardHate(map);
 		if(result == 0)
 			BoardMapper.getInstance().deleteBoardHate(map);
@@ -71,15 +72,15 @@ public class BoardService {
 		BoardDAO.getInstance().deleteBoardComment(cno);		
 	}
 	public int insertBoardCommentLike(int cno, String id) {
-		int result =BoardDAO.getInstance().insertBoardCommentLike(cno,id);
+		int result =BoardMapper.getInstance().insertBoardCommentLike(cno,id);
 		if(result == 0)
-			BoardDAO.getInstance().deleteBoardCommentLike(cno,id);
+			BoardMapper.getInstance().deleteBoardCommentLike(cno,id);
 		return result;
 	}
 	public int insertBoardCommentHate(int cno, String id) {
-		int result =BoardDAO.getInstance().insertBoardCommentHate(cno,id);
+		int result =BoardMapper.getInstance().insertBoardCommentHate(cno,id);
 		if(result == 0)
-			BoardDAO.getInstance().deleteBoardCommentHate(cno,id);
+			BoardMapper.getInstance().deleteBoardCommentHate(cno,id);
 		return result;
 	}
 	
