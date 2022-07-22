@@ -17,6 +17,9 @@
 		insert into product(product_no, product_name, price, ea, maker)
 		values(#{productNo},#{productName},#{price},#{ea},#{maker})
 	</insert>	
+	<select id="selectProduct" parameterType="String" resultMap="product">
+		select * from product where product_no = #{no}
+	</select>
 </mapper>
 
 

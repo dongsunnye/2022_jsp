@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -10,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.ibatis.exceptions.PersistenceException;
 import org.json.JSONArray;
 
 import dto.ProductDTO;
@@ -18,7 +18,7 @@ import mapper.ProductMapper;
 /**
  * Servlet implementation class ProductInputServlet
  */
-@WebServlet("/ProductInputServlet")
+@WebServlet("/insertProduct.do")
 public class ProductInputServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -41,7 +41,7 @@ public class ProductInputServlet extends HttpServlet {
 			String maker = request.getParameter("maker");
 			int ea = Integer.parseInt(request.getParameter("ea"));
 			int price = Integer.parseInt(request.getParameter("price"));
-			
+			if(ea < 0 || price < 0) throw new Exception();
 			ProductDTO dto = new ProductDTO(productNo, productName, price, ea, maker);
 			
 			ProductMapper.getInstance().insertProduct(dto);
@@ -52,11 +52,12 @@ public class ProductInputServlet extends HttpServlet {
 		}catch (NumberFormatException e) {
 			response.setStatus(1001);
 			response.getWriter().write("재고와 금액은 숫자로 입력하세요");
-		}catch (SQLException e) {
+		}catch (PersistenceException e) {
 			response.setStatus(1002);
 			response.getWriter().write("잘못된 데이터를 입력하였습니다.");
 		}catch (Exception e) {
 			response.setStatus(1003);
+			System.out.println(e.getClass().getName());
 			response.getWriter().write("재고와 금액은 양수로 입력하세요");
 		}
 	}
