@@ -1,5 +1,6 @@
 package mapper;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -199,6 +200,24 @@ public class BoardMapper {
 		}
 		return result;		
 		
+	}
+
+	public List<BoardCommentDTO> selectBoardCommentList(int bno) {
+		SqlSession session = DBManager.getInstance().getSession();
+		List<BoardCommentDTO> list = session.selectList("selectBoardCommentList", bno);
+		return list;
+	}
+
+	public int deleteBoard(int bno) {
+		SqlSession session = DBManager.getInstance().getSession();
+		int result = 0;
+		try {
+			result = session.delete("deleteBoard", bno);
+			session.commit();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return result;	
 	}
 	
 }

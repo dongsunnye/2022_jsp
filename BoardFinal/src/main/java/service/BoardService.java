@@ -1,12 +1,8 @@
 package service;
 
-import java.sql.Connection;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import config.DBManager;
-import dao.BoardDAO;
 import dto.BoardCommentDTO;
 import dto.BoardDTO;
 import mapper.BoardMapper;
@@ -33,7 +29,7 @@ public class BoardService {
 		return BoardMapper.getInstance().selectBoard(bno);
 	}
 	public void deleteBoard(int bno) {
-		BoardDAO.getInstance().deleteBoard(bno);
+		BoardMapper.getInstance().deleteBoard(bno);
 	}
 	public void updateBoard(BoardDTO dto) {
 		BoardMapper.getInstance().updateBoard(dto);
@@ -63,8 +59,8 @@ public class BoardService {
 	public void insertBoardComment(BoardCommentDTO boardCommentDTO) {
 		BoardMapper.getInstance().insertBoardComment(boardCommentDTO);
 	}
-	public ArrayList<BoardCommentDTO> selectCommentList(int bno) {
-		return BoardDAO.getInstance().selectBoardCommentList(bno);
+	public List<BoardCommentDTO> selectCommentList(int bno) {
+		return BoardMapper.getInstance().selectBoardCommentList(bno);
 	}
 	public void deleteBoardComment(int cno) {
 		BoardMapper.getInstance().deleteBoardComment(cno);		
