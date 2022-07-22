@@ -41,7 +41,7 @@ public class BoardService {
 		BoardMapper.getInstance().updateBoard(dto);
 	}
 	public void addBoardCount(int bno) {
-		BoardDAO.getInstance().addCountBoard(bno);
+		BoardMapper.getInstance().addCountBoard(bno);
 	}
 	public int insertBoardLike(int bno,String id) {
 		HashMap<String, Object> map = new HashMap<String, Object>();

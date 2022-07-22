@@ -102,6 +102,19 @@ public class BoardMapper {
 		}
 		return result;
 	}
+
+	public int addCountBoard(int bno) {
+		SqlSession session = DBManager.getInstance().getSession();
+		int result = 0;
+		try {
+			result = session.update("addCountBoard", bno);
+			session.commit();
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		return result;
+		
+	}
 	
 }
 

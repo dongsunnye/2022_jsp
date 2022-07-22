@@ -37,6 +37,9 @@
 	<delete id="deleteBoardHate" parameterType="map">
 		delete from board_hate where bno = #{bno} and id = #{id}
 	</delete>
+	<update id="addCountBoard" parameterType="int">
+		update board set bcount = bcount + 1 where bno = #{bno}
+	</update>
 </mapper>
 
 
