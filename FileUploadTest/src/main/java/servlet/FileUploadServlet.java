@@ -39,7 +39,8 @@ public class FileUploadServlet extends HttpServlet {
 		
 		File userRoot = new File(request.getSession().getServletContext().getRealPath("/")
 				+"/upload");
-		
+		if(!userRoot.exists())
+			userRoot.mkdirs();
 		DiskFileItemFactory factory = new DiskFileItemFactory();
 		factory.setRepository(userRoot);//업로드될 폴더 설정
 		factory.setSizeThreshold(1024*1024);//버퍼 메모리
