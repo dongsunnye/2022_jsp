@@ -1,5 +1,7 @@
 package dto;
 
+import java.io.File;
+
 public class FileDTO {
 	private String path;
 	private String fileName;
@@ -15,6 +17,22 @@ public class FileDTO {
 		this.order = order;
 	}
 	public FileDTO() {
+	}
+	public FileDTO(File file, int bno, int order) {
+		this.path = file.getAbsolutePath();
+		this.fileName = file.getName();
+		switch(fileName.substring(fileName.lastIndexOf(".")+1).toLowerCase()) {
+		case "png":
+		case "bmp":
+		case "jpg":
+		case "gif":
+			type="image";
+			break;
+		default:
+			type="normal";
+		}
+		this.bno = bno;
+		this.order = order;
 	}
 	public String getPath() {
 		return path;
