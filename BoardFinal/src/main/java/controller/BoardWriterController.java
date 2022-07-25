@@ -20,11 +20,17 @@ public class BoardWriterController implements Controller {
 		String writer = request.getParameter("writer");
 		
 		BoardDTO dto = new BoardDTO(title, writer, content);
-		
-		
+		int bno = BoardService.getInstance().selectBoardNo();
+		dto.setBno(bno);
+		// 1
 		BoardService.getInstance().insertBoard(dto);
-		
+		// 2
 		return new ModelAndView("main.do", true);
 	}
 
 }
+
+
+
+
+

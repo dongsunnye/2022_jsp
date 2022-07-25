@@ -16,9 +16,12 @@
 		select count(*) from board_view
 	</select>
 	
+	<select id="selectBoardNo" resultType="int">
+		select board_bno.nextval from dual
+	</select>
 	<insert id="insertBoard" parameterType="board">
 		insert into board(bno, title, writer, content, bcount) 
-		values(board_bno.nextval,#{title},#{writer},#{content},0)
+		values(#{bno},#{title},#{writer},#{content},0)
 	</insert>
 	
 	<update id="updateBoard" parameterType="board">

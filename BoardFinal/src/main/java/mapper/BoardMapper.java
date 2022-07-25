@@ -219,6 +219,14 @@ public class BoardMapper {
 		}
 		return result;	
 	}
+
+	public int selectBoardNo() {
+		SqlSession session = DBManager.getInstance().getSession();
+		int result = 0;
+		result = session.selectOne("selectBoardNo");
+		session.close();
+		return result;
+	}
 	
 }
 
