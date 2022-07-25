@@ -48,7 +48,12 @@ public class FileDownServlet extends HttpServlet {
 		
 		while(true) {
 			int size = fis.read(buffer);
+			if(size == -1) break;
+			bos.write(buffer,0,size);
+			bos.flush();
 		}
+		fis.close();
+		bos.close();
 	}
 
 	/**
