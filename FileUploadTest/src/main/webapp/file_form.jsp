@@ -16,6 +16,8 @@
 		});
 		$("#minus").click(function() {
 			if(count == 1) return;
+			count--;
+			$("form").children("p").last().remove();
 		});
 	});
 </script>
