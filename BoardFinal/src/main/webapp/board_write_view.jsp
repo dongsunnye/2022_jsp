@@ -40,13 +40,27 @@
 	}
 	
 </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript">
-	window.onload = function(){
-		var btnBack = document.querySelector(".btn_back");
-		btnBack.onclick = function(){
+	$(function() {
+		var count = 3;
+		$("#plus").click(function(){
+			if(count == 5) return;
+			count++;
+			$("form").append("<p><input type='file' name='file"+count+"'></p>");
+		});
+		$("#minus").click(function() {
+			if(count == 1) return;
+			count--;
+			$("form").children("p").last().remove();
+		});
+		$(".btn_back").click(function(){
 			history.back();
-		}
-	}
+		});
+		$(".btn_submit").click(function(){
+			$("form").submit();
+		});
+	});
 </script>
 </head>
 <body>
@@ -57,10 +71,21 @@
 			<input type="hidden" name="writer" value="${sessionScope.dto.id }">
 			<input type="text" name="title" placeholder="제목을 입력하세요">
 			<textarea name="content" placeholder="내용을 입력하세요"></textarea>
-			<div class="form_bar">
-				<button>글쓰기</button><button type="button" class="btn_back">뒤로가기</button>
-			</div>
+			<p>
+				<input type="file" name="file1">
+		   		<button type="button" id="plus">+</button>
+		   		<button type="button" id="minus">-</button>
+	    	</p>
+			<p><input type="file" name="file2"></p>
+			<p><input type="file" name="file3"></p>
 		</form>
+		<div class="form_bar">
+			<button type="button" class="btn_submit">글쓰기</button><button type="button" class="btn_back">뒤로가기</button>
+		</div>
 	</section>
 </body>
 </html>
+
+
+
+
