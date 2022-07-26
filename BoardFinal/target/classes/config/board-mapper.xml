@@ -68,6 +68,12 @@
 	<delete id="deleteBoardComment" parameterType="int">
 		delete from board_comment where cno = #{cno}
 	</delete>
+	<insert id="insertFile" parameterType="dto.FileDTO">
+		insert into board_file values(#{bno},#{order},#{path})
+	</insert>
+	<select id="selectFileList" parameterType="int" resultType="dto.FileDTO">
+		select bno, fno as order, path from board_file where bno = #{bno}
+	</select>
 </mapper>
 
 

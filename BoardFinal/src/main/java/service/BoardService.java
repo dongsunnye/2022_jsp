@@ -5,6 +5,7 @@ import java.util.List;
 
 import dto.BoardCommentDTO;
 import dto.BoardDTO;
+import dto.FileDTO;
 import mapper.BoardMapper;
 
 public class BoardService {
@@ -79,6 +80,9 @@ public class BoardService {
 	}
 	public int selectBoardNo() {
 		return BoardMapper.getInstance().selectBoardNo();
+	}
+	public int insertFile(FileDTO file) {
+		return BoardMapper.getInstance().insertFile(file);
 	}
 	
 }
