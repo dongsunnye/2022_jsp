@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dto.BoardCommentDTO;
 import dto.BoardDTO;
+import dto.FileDTO;
 import service.BoardService;
 import view.ModelAndView;
 
@@ -34,6 +35,10 @@ public class BoardViewController implements Controller {
 		//게시글에 해당하는 댓글을 읽어옴
 		List<BoardCommentDTO> list = BoardService.getInstance().selectCommentList(bno);
 		request.setAttribute("list", list);
+		//파일 목록 읽어옴
+		List<FileDTO> flist = BoardService.getInstance().selectFileList(bno);
+		request.setAttribute("flist", flist);
+		
 		return new ModelAndView("board_view.jsp", false);
 	}
 

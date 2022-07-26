@@ -38,6 +38,18 @@ public class FileDTO {
 		return path;
 	}
 	public void setPath(String path) {
+		File file = new File(path);
+		this.fileName = file.getName();
+		switch(fileName.substring(fileName.lastIndexOf(".")+1).toLowerCase()) {
+		case "png":
+		case "bmp":
+		case "jpg":
+		case "gif":
+			type="image";
+			break;
+		default:
+			type="normal";
+		}
 		this.path = path;
 	}
 	public String getFileName() {

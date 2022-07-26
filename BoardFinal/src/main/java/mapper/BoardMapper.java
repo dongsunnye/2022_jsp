@@ -241,6 +241,13 @@ public class BoardMapper {
 		session.close();
 		return result;
 	}
+
+	public List<FileDTO> selectFileList(int bno) {
+		SqlSession session = DBManager.getInstance().getSession();
+		List<FileDTO> list = session.selectList("selectFileList", bno);
+		session.close();
+		return list;
+	}
 	
 }
 

@@ -84,6 +84,9 @@ public class BoardService {
 	public int insertFile(FileDTO file) {
 		return BoardMapper.getInstance().insertFile(file);
 	}
+	public List<FileDTO> selectFileList(int bno) {
+		return BoardMapper.getInstance().selectFileList(bno);
+	}
 	
 }
 

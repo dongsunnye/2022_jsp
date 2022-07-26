@@ -104,6 +104,15 @@
 				${requestScope.board.content}
 			</td>
 		</tr>
+		<!-- 첨부파일 목록 출력 -->
+		<tr>
+			<td colspan="2">
+				<h3>첨부파일 목록</h3>
+				<c:forEach var="f" items="${requestScope.flist }">
+					<a href="fileDown.do?bno=${f.bno }&fno=${f.order}">${f.fileName }</a>
+				</c:forEach>
+			</td>
+		</tr>
 		<tr>
 			<td colspan="2"> 
 				<a href="#" id="btn_like">좋아요 ${requestScope.board.blike}</a>

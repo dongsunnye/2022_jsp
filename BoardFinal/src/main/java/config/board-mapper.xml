@@ -72,7 +72,7 @@
 		insert into board_file values(#{bno},#{order},#{path})
 	</insert>
 	<select id="selectFileList" parameterType="int" resultType="dto.FileDTO">
-		select bno, fno as order, path from board_file where bno = #{bno}
+		select bno, fno as "order", path from board_file where bno = #{bno}
 	</select>
 </mapper>
 
