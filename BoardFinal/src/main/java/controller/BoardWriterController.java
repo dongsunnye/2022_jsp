@@ -14,6 +14,7 @@ import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
+import dto.BoardDTO;
 import dto.FileDTO;
 import service.BoardService;
 import view.ModelAndView;
@@ -26,7 +27,7 @@ public class BoardWriterController implements Controller {
 		String title = null;
 		String content = null;
 		String writer = null;
-		
+		int bno = 0;
 		String encoding = "utf-8";
 		String root = "c:\\fileupload\\";
 		File userRoot = new File(root);
@@ -68,21 +69,26 @@ public class BoardWriterController implements Controller {
 						if(!uploadFile.getParentFile().exists())
 							uploadFile.getParentFile().mkdirs();
 						fList.add(new FileDTO(uploadFile, 0, fList.size()));
+						item.write(uploadFile);
 					}
 				}
 			}
-			
-			
-			
-			
-			int bno = BoardService.getInstance().selectBoardNo();
+			bno = BoardService.getInstance().selectBoardNo();
+			//게시글 추가
+			BoardDTO dto = new BoardDTO(title, writer, content);
+			BoardService.getInstance().insertBoard(dto);
+			//파일 테이블에 업로드한 파일 정보를 저장
+			for(FileDTO file : fList) {
+				file.setBno(bno);
+				BoardService.getInstance().insertFile(file);
+			}
 		} catch (FileUploadException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		
-		
-		return new ModelAndView("main.do", true);
+		return new ModelAndView("boardView.do?bno="+bno, true);
 	}
 
 }
