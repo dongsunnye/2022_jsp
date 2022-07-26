@@ -74,6 +74,9 @@
 	<select id="selectFileList" parameterType="int" resultType="dto.FileDTO">
 		select bno, fno as "order", path from board_file where bno = #{bno}
 	</select>
+	<select id="selectFile" parameterType="map" resultType="dto.FileDTO">
+		select bno, fno as "order", path from board_file where bno = #{bno} and fno = #{fno}
+	</select>
 </mapper>
 
 

@@ -87,6 +87,12 @@ public class BoardService {
 	public List<FileDTO> selectFileList(int bno) {
 		return BoardMapper.getInstance().selectFileList(bno);
 	}
+	public FileDTO selectFile(int bno, int fno) {
+		HashMap<String, Integer> map = new HashMap<String, Integer>();
+		map.put("bno", bno);
+		map.put("fno", fno);
+		return BoardMapper.getInstance().selectFile(map);
+	}
 	
 }
 
